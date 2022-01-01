@@ -7,26 +7,36 @@ import { useState, useEffect } from "react"
 export const useUser = () => {
   const [username, setUsername] = useState("")
   const [userInfo, setUserInfo] = useState<UserInfo>({} as UserInfo)
-
-  useEffect(() => {
-    // User is logged in
-    if (username) return
-
-    // Check for access token and try to log user in
-    const accessToken = localStorage.getItem("access_token")
-    if (accessToken) {
-      tryLogUserIn(accessToken)
-    }
-
-    async function tryLogUserIn(accessToken: string) {
-      const username = await harperGetUsername(accessToken)
-      const userInfo = await harperGetUserInfo(username)
+  const DB_URL = process.env.DB_URL
+  const tryLogUserIn = async (accessToken: string) => {
+    try {
+      const username = await harperGetUsername(accessToken);
+      //const userDetails = await harperGetUserDetails(accessToken);
       if (username) {
-        setUsername(username)
-        setUserInfo(userInfo)
+        const userInfo = await harperGetUserInfo(username);
+        // console.log(userInfo)
+        setUsername(username);
+        setUserInfo(userInfo);
       }
+      // if (userDetails) {
+      //   // const userInfo = await harperGetUserInfo(username);
+      //   setUsername(userDetails.username);
+      //   console.log(userDetails)
+      //  // setUserInfo(userDetails.userInfo);
+      // }
+    } catch (error) {
+      console.error("Error logging in:", error);
     }
-  })
+   };
+
+  
+  useEffect(() => {
+    const accessToken = localStorage.getItem("access_token");
+
+    if (!username && accessToken) {
+      tryLogUserIn(accessToken);
+    }
+  }, [username]);
 
   return { username, setUsername, userInfo, setUserInfo }
 }

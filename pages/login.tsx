@@ -4,6 +4,7 @@ import {
   LockClosedIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import jwt_decode from "jwt-decode";
 import Image from "next/image";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
@@ -11,17 +12,31 @@ import { FormEvent, useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContexts";
 import { harperFetchJWTTokens } from "../utils/harperdb/fetchJWTTokens";
 import SocialLogin from "../components/social-login";
+import { UserInfo } from "../types/UserInfo";
+import { harperGetUserInfo } from "../utils/harperdb/getUserInfo";
 export default function Register() {
-  const user = useContext(UserContext);
+  const { setUsername, setUserInfo } = useContext(UserContext);
   const router = useRouter();
 
-  const [username, setUsername] = useState("");
+  const [username, setLoginUsername] = useState("");
   const [password, setPassword] = useState("");
 
   // disable submit when inputs are empty
   const validate = () => {
     return username.trim().length & password.trim().length;
   };
+
+  async function getUserInfo( username: string) : Promise<UserInfo> {
+
+    try {
+      const userInfo: UserInfo = await harperGetUserInfo(username);
+      return userInfo;
+    } catch (err) {
+      console.error("Something went wrong", err);
+      throw err; // Re-throw the error to be handled by the caller if needed
+    }
+
+  }
 
   async function handleLogin(
     e: FormEvent<HTMLFormElement>
@@ -35,8 +50,10 @@ export default function Register() {
       const { status } = response;
       const accessToken = result.operation_token;
       if (status === 200 && accessToken) {
-        authenticateUser(username, accessToken);
-        router.push("/");
+        // decode jwt received from the server
+        const decodedData: any = jwt_decode(accessToken);
+        authenticateUser(decodedData.username, accessToken);
+        // router.push("/");
       } else if (status === 401) {
         // setError("Check your username and password are correct")
         alert(
@@ -50,17 +67,19 @@ export default function Register() {
       console.log(err);
       // setError("Whoops, something went wrong :(")
       alert("Whoops, something went wrong :(");
+    } finally {
+      window.location.href = "/";
     }
 
-    setUsername("");
+    setLoginUsername("");
     setPassword("");
   }
 
-  const authenticateUser = (
+  const authenticateUser = async (
     username: string,
     accessToken: string
   ) => {
-    user.setUsername(username);
+    setUsername(username);
     localStorage.setItem("access_token", accessToken);
   };
 
@@ -150,7 +169,7 @@ export default function Register() {
                   required
                   value={username}
                   onChange={(event) =>
-                    setUsername(event.target.value)
+                    setLoginUsername(event.target.value)
                   }
                   className="h-12 border block min-w-full  
                     rounded-xl shadow-lg border-gray-300 pl-10 

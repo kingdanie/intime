@@ -31,21 +31,21 @@ export default function Home() {
 
   const messages: Message[] = [
     {
-      username: "adam",
+      username: "hidam",
       message: "What is happening here",
       recipient: { name: "charles", phone: "96545" },
       status: Status.sent,
       sent_date: "May 5",
     },
     {
-      username: "eve",
+      username: "aseve",
       message: "To be sent",
       recipient: { name: "joy", phone: "40645" },
       status: Status.scheduled,
       sent_date: "May 5",
     },
     {
-      username: "cain",
+      username: "Mcain",
       message: "Not sent",
       recipient: { name: "lizzy", phone: "0000" },
       status: Status.failed,
