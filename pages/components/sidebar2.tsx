@@ -1,7 +1,12 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { ArchiveBoxIcon, Cog6ToothIcon, CreditCardIcon, EnvelopeIcon, FolderIcon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ArchiveBoxIcon, ArrowLeftOnRectangleIcon, Cog6ToothIcon, CreditCardIcon, EnvelopeIcon, FolderIcon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Fragment } from "react";
+
+function classNames(...classes: any) {
+    return classes.filter(Boolean).join(" ");
+  }
 
 export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
     const navigation = [
@@ -12,6 +17,8 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
         { name: "Settings", href: "/settings", icon: Cog6ToothIcon, current: false },
         { name: "History", href: "/history", icon: ArchiveBoxIcon, current: false },
       ];
+
+      const route = useRouter()
     return (
         <>
                 <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -122,7 +129,13 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex items-center rounded-lg p-4 text-indigo-200 hover:bg-indigo-700"
+                    //   className="flex items-center rounded-lg p-4 text-indigo-200 hover:bg-indigo-700"
+                      className={classNames(
+                        (item.href == route.pathname)
+                          ? "bg-indigo-800 text-white rounded-xl"
+                          : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                        "group flex items-center justify-center p-2 text-sm font-medium rounded-md"
+                      )}
                     >
                       <item.icon className="h-6 w-6" aria-hidden="true" />
                       <span className="sr-only">{item.name}</span>
@@ -130,10 +143,15 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                   ))}
                 </nav>
               </div>
-              <div className="flex flex-shrink-0 pb-5">
-                <Link href="/login" className="w-full flex-shrink-0">
-     
-                    Logout
+              <div className="flex flex-shrink-0 pb-5 justify-center">
+                <Link href="/login" className="flex items-center rounded-lg p-4 text-indigo-200 hover:bg-indigo-700">
+                        
+                <ArrowLeftOnRectangleIcon
+                    className="h-6 w-6"
+                    aria-hidden="true"
+                  />
+               
+                <span className="sr-only">logout</span>
         
                 </Link>
               </div>
