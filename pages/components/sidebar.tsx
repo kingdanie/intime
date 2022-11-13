@@ -14,6 +14,7 @@ import {
   Cog6ToothIcon,
   ArchiveBoxIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 // const navigation = [
 //     {
@@ -28,14 +29,7 @@ import {
 //     { name: 'Reporting', href: '#', children: [] },
 //     { name: 'Settings', href: '#', children: [] },
 //   ]
-const sidebarNavigation = [
-  { name: "Open", href: "#", icon: "", current: true },
-  { name: "Archive", href: "#", icon: "", current: false },
-  { name: "Customers", href: "#", icon: "", current: false },
-  { name: "Flagged", href: "#", icon: "", current: false },
-  { name: "Spam", href: "#", icon: "", current: false },
-  { name: "Drafts", href: "#", icon: "", current: false },
-];
+
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Sign out", href: "#" },
@@ -43,11 +37,11 @@ const userNavigation = [
 
 const navigation = [
   { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "Message", href: "#", icon: EnvelopeIcon, current: false },
-  { name: "Contacts", href: "#", icon: FolderIcon, current: false },
-  { name: "Pricing", href: "#", icon: CreditCardIcon, current: false },
-  { name: "Settings", href: "#", icon: Cog6ToothIcon, current: false },
-  { name: "History", href: "#", icon: ArchiveBoxIcon, current: false },
+  { name: "Message", href: "/messages", icon: EnvelopeIcon, current: false },
+  { name: "Contacts", href: "/contact", icon: FolderIcon, current: false },
+  { name: "Pricing", href: "/pricing", icon: CreditCardIcon, current: false },
+  { name: "Settings", href: "/settings", icon: Cog6ToothIcon, current: false },
+  { name: "History", href: "/history", icon: ArchiveBoxIcon, current: false },
 ];
 
 function classNames(...classes: any) {
@@ -352,10 +346,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden md:fixed md:inset-y-0 md:flex md:flex-col">
+      <div className="hidden md:fixed md:inset-y-0 md:flex md:flex-col lg:flex-shrink-0">
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex min-h-0 flex-1 flex-col rounded-lg">
-          <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+        <div className="flex min-h-0 flex-1 flex-col rounded-lg shadow-sm w-16">
+          <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4 overflow-x-hidden">
             <div className="flex flex-shrink-0 items-center px-4">
               <img
                 className="h-8 w-auto"
@@ -365,22 +359,22 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             </div>
             <nav className="mt-5 flex-1 space-y-1 px-2">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-indigo-800 text-white"
+                      ? "bg-indigo-800 text-white rounded-xl"
                       : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
-                    "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                    "group flex items-center justify-center px-2 py-2 text-sm font-medium rounded-md"
                   )}
                 >
                   <item.icon
-                    className="mr-3 h-6 w-6 flex-shrink-0 text-indigo-300"
+                    className="h-6 w-6 flex-shrink-0 text-indigo-300"
                     aria-hidden="true"
                   />
                   <span className="sr-only">{item.name}</span>
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
