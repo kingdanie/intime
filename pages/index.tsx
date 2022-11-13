@@ -1,20 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Sidebar from './components/sidebar'
-import { Fragment, useState } from 'react'
-import {
-  Bars3Icon,
-} from '@heroicons/react/24/outline'
-
-
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import Sidebar2 from "./components/sidebar2";
+import { Fragment, useState } from "react";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+import TopBar from "./components/topbar";
 
 export default function Home() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const layout = {
-    width: '20%',
-    color: 'red'
-   }
+    width: "20%",
+    color: "red",
+  };
   return (
     // <div>
     //   <Head>
@@ -82,7 +79,7 @@ export default function Home() {
     //   </footer>
     // </div>
     <>
-    {/*
+      {/*
       This example requires updating your template:
 
       ```
@@ -90,11 +87,11 @@ export default function Home() {
       <body class="h-full">
       ```
     */}
-    <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-    <div>
- 
+      <Sidebar2 sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      {/* <div> */}
+
       <div className="flex flex-1 flex-col h-screen">
-        <div className="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
+        {/* <div className="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
           <button
             type="button"
             className="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
@@ -103,42 +100,39 @@ export default function Home() {
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-        </div>
+        </div> */}
+        <TopBar setSidebarOpen={() => setSidebarOpen(true)} />
+
         <main className="min-w-0 flex-1 border-t border-gray-200 lg:flex">
-         {/* Primary column */}
-         <section
-              aria-labelledby="primary-heading"
-              className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last"
-            >
-              <h1 id="primary-heading" className="sr-only">
-                Home
-              </h1>
-              <h1 className={styles.title}>
-       Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
-      <p className={styles.description}>
-         Get started by editing{' '}
-         <code className={styles.code}>pages/index.tsx</code>
-      </p>
+          {/* Primary column */}
+          <section
+            aria-labelledby="primary-heading"
+            className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last"
+          >
+            <h1 id="primary-heading" className="sr-only">
+              Home
+            </h1>
+            <h1 className={styles.title}>
+              Welcome to <a href="https://nextjs.org">Next.js!</a>
+            </h1>
+            <p className={styles.description}>
+              Get started by editing{" "}
+              <code className={styles.code}>pages/index.tsx</code>
+            </p>
 
+            {/* Your content */}
+          </section>
+
+          {/* Secondary column (hidden on smaller screens) */}
+          <aside className="hidden lg:order-last lg:block lg:flex-shrink-0">
+            <div className="relative flex h-full w-64 flex-col overflow-y-auto border-r border-gray-200 bg-gray-100">
               {/* Your content */}
-            </section>
-
-            {/* Secondary column (hidden on smaller screens) */}
-            <aside className="hidden lg:order-last lg:block lg:flex-shrink-0">
-              <div className="relative flex h-full w-64 flex-col overflow-y-auto border-r border-gray-200 bg-gray-100">
-                {/* Your content */}
-                <p>Other section</p>
-              </div>
-            </aside>
+              <p>Other section</p>
+            </div>
+          </aside>
         </main>
       </div>
-    </div>
-  </>
-  )
+      {/* </div> */}
+    </>
+  );
 }
-
-
-
-
-
