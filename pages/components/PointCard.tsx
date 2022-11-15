@@ -11,7 +11,7 @@ export default function PointCard() {
               </div>
             </div>
             <div className="flex flex-col space-y-1">
-              <p className="text-sm">Points</p>
+              <p className="text-sm text-white">Points</p>
               <div className="text-4xl font-bold">243</div>
               <div className="text-yellow-300 text-sm">N 2304</div>
             </div>
