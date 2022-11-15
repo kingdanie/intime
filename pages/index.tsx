@@ -7,7 +7,7 @@ import PointCard from "./components/PointCard";
 import Metrics from "./components/metrics";
 import MCalendar from "./components/m-calendar";
 import MsgCard from "./components/MsgCard";
-import EditProfile from "./editProfile";
+import EditProfile from "./components/editProfile";
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
