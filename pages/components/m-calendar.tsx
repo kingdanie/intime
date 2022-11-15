@@ -50,7 +50,7 @@ function classNames(...classes: any[]) {
   ]
 export default function MCalendar() {
     return (
-        <div className="hidden w-full max-w-md flex-none border-l border-gray-100 py-10 px-3 md:block">
+        <div className="hidden w-full max-w-md flex-none border-l border-gray-100 py-10 md:block">
         <div className="flex items-center text-center text-gray-900">
           <button
             type="button"
