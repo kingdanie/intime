@@ -6,7 +6,8 @@ export default function MsgCard({message}) {
                         <div className="flex space-x-3">
 
                         <div className="flex-shrink-0">
-                          <img className="h-10 w-10 rounded-full" src="" alt="" />
+                          <img className="h-10 w-10 rounded-full" src="/mary.png" alt="" />
+
                         </div>
                         <div className="min-w-0 flex-1">
                           <a href="#" className="focus:outline-none">
