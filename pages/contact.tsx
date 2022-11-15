@@ -4,7 +4,7 @@ import Link from "next/link";
 import AppHeader from "./components/AppHeader";
 import MCalendar from "./components/m-calendar";
 import SearchInput from "./components/SearchInput";
-import EditProfile from "./editProfile";
+import EditProfile from "./components/editProfile";
 import OtherLayout from "./layout2";
 import { classNames } from "../utils/helpers";
 export default function About() {
