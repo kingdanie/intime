@@ -17,7 +17,7 @@ export default function OtherLayout({
         <Sidebar2 sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           <div className="flex flex-1 flex-col h-screen">
      <TopBar setSidebarOpen={() => setSidebarOpen(true)}/>
-            <main className="min-w-0 flex-1 border-t border-gray-200 lg:flex">
+            <main className="min-w-0 flex-1 border-t border-gray-200 lg:flex pt-5 px-5 overflow-y-auto">
               {/* Primary column */}
               {children}
             </main>
