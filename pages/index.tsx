@@ -8,6 +8,7 @@ import Metrics from "./components/metrics";
 import MCalendar from "./components/m-calendar";
 import MsgCard from "./components/MsgCard";
 import EditProfile from "./components/editProfile";
+import Link from "next/link";
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,10 +40,10 @@ export default function Home() {
         <div>
           <div className="flex justify-between">
             <h3 className="font-bold ">Recents</h3>
-            <h6>view full history</h6>
+            <Link href={'/history'}><h6>View full history</h6></Link>
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
-            <div className="mt-1 grid grid-cols-1 gap-4 ">
+            <div className="mt-1 grid grid-cols-1">
               {passages.map((person) => (
                 <MsgCard message="" key={person} />
               ))}
@@ -54,7 +55,7 @@ export default function Home() {
 
       {/* Secondary column (hidden on smaller screens) */}
       <aside className="hidden lg:order-last lg:block lg:flex-shrink-0 pt-10">
-        <div className="relative flex h-full w-84 flex-col px-2 items-center">
+        <div className="relative flex h-full w-80 flex-col px-2 items-center">
           {/* Your content */}
           <EditProfile />
           <MCalendar />
