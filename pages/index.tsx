@@ -20,7 +20,7 @@ export default function Home() {
     <OtherLayout>
       <div
         aria-labelledby="primary-heading"
-        className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-first p-10"
+        className="flex h-full min-w-0 flex-1 flex-col lg:order-first p-10"
       >
         <h1 id="primary-heading" className="sr-only">
           Account
@@ -54,7 +54,7 @@ export default function Home() {
 
       {/* Secondary column (hidden on smaller screens) */}
       <aside className="hidden lg:order-last lg:block lg:flex-shrink-0 pt-10">
-        <div className="scrollbar-hide relative flex h-full w-84 flex-col overflow-y-auto border-r border-gray-200 px-2 items-center">
+        <div className="relative flex h-full w-84 flex-col px-2 items-center">
           {/* Your content */}
           <EditProfile />
           <MCalendar />
