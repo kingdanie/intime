@@ -14,15 +14,15 @@ export default function RootLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-<div className="flex h-screen">
-        <SideBar2 sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <div className="flex flex-1 flex-col h-screen">
-     <TopBar setSidebarOpen={() => setSidebarOpen(true)}/>
-            <main className="overflow-y-scroll">
-              {/* Primary column */}
-              {children}
-            </main>
-          </div>
+    <div className="flex h-screen">
+      <SideBar2 sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <div className="flex flex-1 flex-col h-screen">
+        <TopBar setSidebarOpen={() => setSidebarOpen(true)} />
+        <main className="overflow-y-scroll">
+          {/* Primary column */}
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

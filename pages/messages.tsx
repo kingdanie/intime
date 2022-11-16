@@ -62,17 +62,18 @@ export default function Messages() {
             </div>
             <div className="flex justify-end items-center space-x-3 w-full">
               <div className="px-4 py-2 shadow-sm rounded-lg border-solid border-gray-300 border-2 space-x-5 flex">
-                  <div className="flex items-center space-x-2">
-                    <div 
+                <div className="flex items-center space-x-2">
+                  <div
                     className="rounded-full border-solid border-2 border-gray-300 py-1 px-2 hover:bg-gray-300 
                     flex items-center justify-center
                     text-xs
-                    ">
-                      {"hello".toUpperCase().slice(0, 1) }
-                    </div>
-                    <small>Hello</small>
-                  </div> 
-                  <button>x</button>
+                    "
+                  >
+                    {"hello".toUpperCase().slice(0, 1)}
+                  </div>
+                  <small>Hello</small>
+                </div>
+                <button>x</button>
               </div>
             </div>
             <div>

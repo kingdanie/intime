@@ -51,25 +51,23 @@ export default function About() {
                     </h3>
                   </div>
                   <div className="flex items-center justify-between w-full">
-                    
                     <div>
-                        <h6 className="text-sm">{group.name}</h6>
+                      <h6 className="text-sm">{group.name}</h6>
 
-                        {/* icons of members in group*/}
-                        <div className="flex space-x-2">
-                        <div 
-                    className="rounded-full border-solid border-2 border-gray-300 py-1 px-2 hover:bg-gray-300 
+                      {/* icons of members in group*/}
+                      <div className="flex space-x-2">
+                        <div
+                          className="rounded-full border-solid border-2 border-gray-300 py-1 px-2 hover:bg-gray-300 
                     flex items-center justify-center
                     text-xs
-                    ">
-                      {"hello".toUpperCase().slice(0, 1) } 
-                    </div>
+                    "
+                        >
+                          {"hello".toUpperCase().slice(0, 1)}
+                        </div>
 
-                    {/* amount of members in group*/}
-                    <span>
-                        + {group.name.length}
-                    </span>
-                    </div>
+                        {/* amount of members in group*/}
+                        <span>+ {group.name.length}</span>
+                      </div>
                     </div>
                     <button className="flex h-7 w-2 justify-center items-center rounded-xl border bg-yellow-400 border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                       +

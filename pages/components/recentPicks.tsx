@@ -8,10 +8,14 @@ export default function RecentPicks() {
       </div>
       <h3 className="text-center">Recent Picks</h3>
       <div className="grid grid-cols-4 space-x-5">
-        {[1, 2, 3].map(item => (      <div key={item} className="border border-solid border-gray-300 rounded-lg">
-          <small className="px-2 py-1 text-gray-300">10.00am</small>
-        </div>))}
-  
+        {[1, 2, 3].map((item) => (
+          <div
+            key={item}
+            className="border border-solid border-gray-300 rounded-lg"
+          >
+            <small className="px-2 py-1 text-gray-300">10.00am</small>
+          </div>
+        ))}
       </div>
       <div className="w-full">
         <select

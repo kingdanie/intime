@@ -34,8 +34,7 @@ export default function Home() {
         </section>
         <section className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-start md:space-x-10 py-14">
           <PointCard />
-<Metrics />
-       
+          <Metrics />
         </section>
         <div>
           <div className="flex justify-between">
@@ -43,13 +42,12 @@ export default function Home() {
             <h6>view full history</h6>
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
-                  <div className="mt-1 grid grid-cols-1 gap-4 ">
-                    {passages.map((person) => (
-                      <MsgCard message='' key={person}/>
-                    ))}
-                  </div>
-        </div>
-
+            <div className="mt-1 grid grid-cols-1 gap-4 ">
+              {passages.map((person) => (
+                <MsgCard message="" key={person} />
+              ))}
+            </div>
+          </div>
         </div>
         {/* Your content */}
       </div>

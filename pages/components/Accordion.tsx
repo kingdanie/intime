@@ -1,7 +1,7 @@
-import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
-export default function Accordion({title, body}) {
+export default function Accordion({ title, body }) {
   return (
     <div className="w-full px-4 pt-16">
       <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
@@ -12,18 +12,17 @@ export default function Accordion({title, body}) {
                 <span>{title}</span>
                 <ChevronUpIcon
                   className={`${
-                    open ? 'rotate-180 transform' : ''
+                    open ? "rotate-180 transform" : ""
                   } h-5 w-5 text-gray-500`}
                 />
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-               {body}
+                {body}
               </Disclosure.Panel>
             </>
           )}
         </Disclosure>
-        
       </div>
     </div>
-  )
+  );
 }
