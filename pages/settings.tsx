@@ -1,4 +1,4 @@
-import { ChevronDoubleDownIcon, ChevronDownIcon, ChevronUpIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
+import { ChevronDoubleDownIcon, ChevronDownIcon, ChevronUpIcon, EnvelopeIcon, UserCircleIcon, UserIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { useState } from "react";
 import AppHeader from "./components/AppHeader";
@@ -6,6 +6,7 @@ import OtherLayout from "./layout2";
 import Accordion from "./components/Accordion";
 import { Disclosure } from "@headlessui/react";
 import RootLayout from "./layout";
+import AppSwitch from "./components/switch";
 
 export default function Settings() {
     const [chevOn, setChevOn] = useState(false)
@@ -63,16 +64,17 @@ export default function Settings() {
             </div>
           </div>
           <div className="mt-10 py-6 space-y-10">
-                  <div className="mx-auto">
+             
+              <div className="mx-auto rounded-lg px-10  py-6 shadow-md border border-solid  hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75 ">
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg shadow-md border border-solid  px-10  py-6 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+              <Disclosure.Button className="flex w-full justify-between text-left text-sm font-medium text-gray-900">
               <div className="inline-flex">
                            <span className="mt-0.5 w-5 h-5 mr-5  bg-gray-300"></span> 
                            <div className="block">
                             <h3 className="text-lg">Account Settings</h3>
-                        <p className="mt-5"> Change password, Change username, Set sender ID, Add/change number</p>
+                        <p className={`${open ? 'hidden' : 'block'} mt-5`}> Change password, Change username, Set sender ID, Add/change number</p>
                             </div>
                         </div>
                 <ChevronUpIcon
@@ -81,24 +83,50 @@ export default function Settings() {
                   } h-8 w-8 text-gray-500 self-center`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptas dolorum distinctio velit quasi nobis inventore cumque omnis, corrupti suscipit aspernatur nostrum voluptatum porro, accusamus quidem assumenda modi atque ad!
+              <Disclosure.Panel className="mt-16 pb-5 text-sm text-gray-500 grid lg:grid-cols-2 gap-10">
+   
+            <button className="relative rounded-md shadow-sm flex items-center p-5 border border-solid">
+                <UserIcon
+                  className="h-5 w-5 text-gray-400 mr-5"
+                  aria-hidden="true"
+                />
+            <span>Change username</span>
+            </button>
+            <button className="relative rounded-md shadow-sm flex items-center p-5 border border-solid">
+            <span className="mt-0.5 w-5 h-5 mr-5  bg-gray-400"></span> 
+
+            <span>Change password</span>
+            </button>
+            <button className="relative rounded-md shadow-sm flex items-center p-5 border border-solid">
+            <span className="mt-0.5 w-5 h-5 mr-5  bg-gray-400"></span> 
+
+            <span>Sender ID</span>
+            </button>
+            <button className="relative rounded-md shadow-sm flex items-center p-5 border border-solid">
+                <UserCircleIcon
+                  className="h-5 w-5 text-gray-400 mr-5"
+                  aria-hidden="true"
+                />
+            <span>Add/change number</span>
+            </button>
+ 
+
               </Disclosure.Panel>
             </>
           )}
         </Disclosure>
         
-      </div>
-      <div className="mx-auto w-full rounded-2xl">
+              </div>
+              <div className="mx-auto rounded-lg px-10  py-6 shadow-md border border-solid  hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75 ">
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg shadow-md border border-solid  px-10  py-6 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+              <Disclosure.Button className="flex w-full justify-between text-left text-sm font-medium text-gray-900">
               <div className="inline-flex">
                            <span className="mt-0.5 w-5 h-5 mr-5  bg-gray-300"></span> 
                            <div className="block">
                             <h3 className="text-lg">Display</h3>
-                        <p className="mt-5"> Dark theme</p>
+                        <p className={`${open ? 'hidden' : 'block'} mt-5`}> Dark theme</p>
                             </div>
                         </div>
                 <ChevronUpIcon
@@ -107,14 +135,21 @@ export default function Settings() {
                   } h-8 w-8 text-gray-500 self-center`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptas dolorum distinctio velit quasi nobis inventore cumque omnis, corrupti suscipit aspernatur nostrum voluptatum porro, accusamus quidem assumenda modi atque ad!
+              <Disclosure.Panel className="mt-16 pb-2 text-sm text-gray-500">
+               <div className="w-5/12 p-5 border border-solid border-gray-400 rounded-lg flex items-center justify-between ">
+                      <div className="inline-flex gap-4">
+                      <UserIcon className="h-5 w-5"/>
+                        <span>Enable Dark Mode</span>
+                      </div>
+                      <AppSwitch name="theme-switch" />
+
+                </div>
               </Disclosure.Panel>
             </>
           )}
         </Disclosure>
         
-      </div>
+              </div>
             
           </div>
           
