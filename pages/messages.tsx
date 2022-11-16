@@ -9,7 +9,7 @@ export default function Messages() {
     <OtherLayout>
       <div
         aria-labelledby="primary-heading"
-        className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-first p-10"
+        className="flex h-full min-w-0 flex-1 flex-col lg:order-first p-10"
       >
         <h1 id="primary-heading" className="sr-only">
           Messaging
@@ -97,7 +97,7 @@ export default function Messages() {
 
       {/* Secondary column (hidden on smaller screens) */}
       <aside className="hidden lg:order-last lg:block lg:flex-shrink-0 pt-10">
-        <div className="relative flex h-full w-96 flex-col overflow-y-auto scrollbar-hide border-r border-gray-200 px-2 items-center">
+        <div className="relative flex h-full w-96 flex-col border-r border-gray-200 px-2 items-center">
           {/* Your content */}
           <div className="flex justify-end items-center space-x-5 w-full">
             <span className="font-semibold">Scheduled message</span>
