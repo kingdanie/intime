@@ -23,6 +23,38 @@ a {
   box-sizing: border-box;
 }
 
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  /* display: none; */
+  opacity: 0
+}
+
+.h-24vh{
+  height: 200px
+}
+
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.bgs{
+  background-image: url('/background.svg');
+  background-size: cover;
+}
+
+.bgs:hover{
+content: " ";
+position: absolute;
+left: 0; 
+right: 0;
+
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
