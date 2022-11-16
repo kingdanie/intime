@@ -3,6 +3,7 @@ import Sidebar from "./components/sidebar";
 import { Fragment, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import TopBar from "./components/topbar";
+import SideBar2 from "./components/sidebar2";
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -14,10 +15,10 @@ export default function RootLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
 <div className="flex h-screen">
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <SideBar2 sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           <div className="flex flex-1 flex-col h-screen">
      <TopBar setSidebarOpen={() => setSidebarOpen(true)}/>
-            <main className="min-w-0 flex-1 border-t border-gray-200 lg:flex">
+            <main className="overflow-y-scroll">
               {/* Primary column */}
               {children}
             </main>
