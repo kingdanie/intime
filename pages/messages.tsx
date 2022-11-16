@@ -97,7 +97,7 @@ export default function Messages() {
 
       {/* Secondary column (hidden on smaller screens) */}
       <aside className="hidden lg:order-last lg:block lg:flex-shrink-0 pt-10">
-        <div className="relative flex h-full w-96 flex-col border-r border-gray-200 px-2 items-center">
+        <div className="relative flex h-full w-96 flex-col px-2 items-center">
           {/* Your content */}
           <div className="flex justify-end items-center space-x-5 w-full">
             <span className="font-semibold">Scheduled message</span>
