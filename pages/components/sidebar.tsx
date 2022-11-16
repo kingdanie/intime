@@ -387,7 +387,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         <InboxIcon />
                         logout
                       </a> */}
-            <a href="/login" className="group block w-full flex-shrink-0">
+            <Link href="/login" className="group block w-full flex-shrink-0">
               <div className="flex items-center">
                 <div>
                   <ArrowLeftOnRectangleIcon
@@ -397,7 +397,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 </div>
                 <div className="ml-3 sr-only">logout</div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

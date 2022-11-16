@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 
+
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
@@ -134,11 +135,11 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden lg:flex lg:flex-shrink-0 rounded-xl shadow-lg">
+      <div className="hidden lg:flex lg:flex-shrink-0 rounded-xl shadow-lg border">
         <div className="flex w-20 flex-col">
-          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-indigo-600">
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
             <div className="flex-1">
-              <div className="flex items-center justify-center bg-indigo-700 py-4">
+              <div className="flex items-center justify-center py-4">
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=white"
