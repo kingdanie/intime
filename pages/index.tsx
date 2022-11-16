@@ -56,7 +56,7 @@ export default function Home() {
 
       {/* Secondary column (hidden on smaller screens) */}
       <aside className="hidden lg:order-last lg:block lg:flex-shrink-0 pt-10">
-        <div className="relative flex h-full w-84 flex-col overflow-y-auto border-r border-gray-200 px-2 items-center">
+        <div className="scrollbar-hide relative flex h-full w-84 flex-col overflow-y-auto border-r border-gray-200 px-2 items-center">
           {/* Your content */}
           <EditProfile />
           <MCalendar />
