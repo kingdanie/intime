@@ -11,10 +11,10 @@ export default function History() {
 
         <section className="mt-10">
           <div className="flex items-center justify-center gap-8">
-            <button className="bg-yellow-500 py-3 rounded-lg w-32">
+            <button className="bg-yellow-500 py-3 shadow rounded-lg w-32">
               <span className="text-xs">Message log</span>
             </button>
-            <button className="bg-white py-3  rounded-lg w-32">
+            <button className="bg-white py-3 border shadow rounded-lg w-32">
               <span className="text-xs">Transaction</span>
             </button>
           </div>

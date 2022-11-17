@@ -4,7 +4,7 @@ export default function PointCard() {
   return (
     <>
       <div className="flex text-white items-center h-40 w-80 relative">
-        <div className="flex text-white items-center rounded-xl p-5 shadow-lg h-40 w-11/12 bg-purple-800">
+        <div className="flex text-white items-center rounded-xl p-5 shadow-lg h-40 w-11/12 bg-purple-800 bg-card">
           <div className="">
             <div className="border-white border-2 px-1 rounded-sm text-white mr-7">
               co

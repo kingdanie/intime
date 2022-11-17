@@ -32,7 +32,7 @@ export default function Messages() {
                 type="senderId"
                 name="senderId"
                 id="senderId"
-                className="h-16 block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="h-16 border block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Sender ID"
               />
             </div>
@@ -51,7 +51,7 @@ export default function Messages() {
                 type="contact"
                 name="contact"
                 id="contact"
-                className="h-16 block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="h-16 border block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Enter contact or group name"
               />
               <div className="absolute items-center inset-y-0 right-0 flex py-1.5 pr-1.5">
@@ -78,14 +78,14 @@ export default function Messages() {
             </div>
             <div>
               <textarea
-                className="rounded-xl p-5 shadow-lg w-full"
+                className="rounded-xl border p-5 shadow-lg w-full"
                 placeholder="Enter your message"
                 rows={10}
                 cols={60}
               ></textarea>
             </div>
             <div>
-              <button className="flex items-center bg-yellow-400 p-3 space-x-5 rounded-lg w-full justify-center">
+              <button className="flex border items-center bg-yellow-400 p-3 space-x-5 rounded-lg w-full justify-center">
                 <span>Send</span> <PaperAirplaneIcon className="h-5" />
               </button>
             </div>
