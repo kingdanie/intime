@@ -36,7 +36,7 @@ export default function About() {
               ].map((group) => (
                 <div
                   key={group.name}
-                  className="flex flex-col justify-between space-y-10 items-center gap-5 border border-dashed border-gray-300 rounded-lg p-5"
+                  className="flex flex-col justify-between  items-center gap-5 border border-2 rounded-xl p-5"
                 >
                   <div className="w-full">
                     <h3
@@ -44,7 +44,7 @@ export default function About() {
                         group!.color != null
                           ? `bg-${group.color}-800`
                           : `bg-red-400`,
-                        "rounded-lg text-lg text-center p-8"
+                        "rounded-lg text-lg text-center px-8 py-12 border"
                       )}
                     >
                       {group.name.slice(0, 1).toUpperCase()}
@@ -78,14 +78,14 @@ export default function About() {
 
               {/* Create custom group */}
               <div className="h-full">
-                <div className="h-full flex flex-col justify-between space-y-10 items-center gap-5 border border-dashed border-gray-300 rounded-lg p-5">
-                  <h3 className="border border-dashed border-gray-300 rounded-full text-lg text-center py-5 px-7">
+                <div className="h-full flex flex-col justify-between space-y-10 items-center gap-5 border-2 border-dashed border-gray-300 rounded-xl p-5">
+                  <h3 className="border border-dashed  rounded-full text-lg text-center py-5 px-7">
                     {" "}
                     +{" "}
                   </h3>
                   <div>
                     <button className="border border-solid border-gray-500 rounded-lg px-1 py-1.5">
-                      <small>Create Group</small>
+                      <small>Create group</small>
                     </button>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export default function About() {
               <button
                 className="text-sm text-gray-600 font-semibold 
                     relative flex py-3 px-5 
-                    rounded-xl bg-yellow-400"
+                    rounded-xl bg-yellow-400 shadow-md"
               >
                 <small>Add new contact</small>
                 <LinkIcon className="h-4" />
@@ -130,8 +130,8 @@ export default function About() {
                   href={""}
                   key={contact}
                   className="flex justify-between px-5 py-7 
-                            border border-solid border-gray-200 rounded-xl 
-                            text-gray-600 shadow-md"
+                            border border-2 rounded-xl 
+                            text-gray-600 shadow-sm"
                 >
                   <div className="flex space-x-3">
                     <div>
