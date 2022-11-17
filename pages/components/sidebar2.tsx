@@ -158,7 +158,7 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                     className={classNames(
                       item.href == route.pathname
                         ? "bg-indigo-800 text-white rounded-xl"
-                        : "text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                        : "text-gray-500 hover:text-white hover:bg-indigo-600 hover:bg-opacity-75",
                       "group flex items-center justify-center p-2 text-sm font-medium rounded-md"
                     )}
                   >
@@ -171,7 +171,7 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
             <div className="flex flex-shrink-0 pb-5 justify-center">
               <Link
                 href="/login"
-                className="flex items-center rounded-lg p-4 text-indigo-200 hover:bg-indigo-700"
+                className="flex items-center rounded-lg p-4 text-gray-500 hover:bg-indigo-700"
               >
                 <ArrowLeftOnRectangleIcon
                   className="h-6 w-6"
