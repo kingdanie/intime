@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SocialLogin from "./components/social-login";
 
 export default function Home() {
@@ -76,12 +77,14 @@ export default function Home() {
           </form>
         </div>
       </div>
-      <div className="w-1/2 h-full bg-purple-700 flex flex-col items-center justify-center">
-        Image
+      <div className="w-1/2 h-full bg-purple-700 flex flex-col items-center pt-10">
+      <Image src={'/register.png'} alt="register image" width={450} height={450} className="mb-10"></Image>
         <h3 className="text-white p-5">Already have an account?</h3>
+        <Link href="/login">
         <button className="ring-white ring-2 shadow focus:border-white focus:ring-white  py-2 px-5 rounded-lg text-sm text-white">
-          <Link href="/login">Login</Link>
+          Login
         </button>
+        </Link>
       </div>
     </div>
   );
