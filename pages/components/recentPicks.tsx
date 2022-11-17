@@ -1,6 +1,6 @@
 export default function RecentPicks() {
   return (
-    <div className="rounded-lg max-w-md border border-gray-200 flex flex-col w-full space-y-4 p-3">
+    <div className="rounded-lg max-w-md border border-gray-200 flex flex-col w-full space-y-4 p-3 shadow-lg">
       <div>
         <div className="py-1 px-2 border border-solid border-gray-300">
           <h3>Time</h3>
