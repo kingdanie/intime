@@ -19,6 +19,9 @@ a {
   text-decoration: none;
 }
 
+.logo-gray{
+  background: #e5e5e5;
+}
 * {
   box-sizing: border-box;
 }
@@ -44,7 +47,10 @@ a {
   background-image: url('/background.svg');
   background-size: cover;
 }
-
+.bg-card{
+  background-image: url('/card_bg.png');
+  background-size: cover;
+}
 .bgs:hover{
 content: " ";
 position: absolute;
