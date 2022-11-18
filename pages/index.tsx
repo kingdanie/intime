@@ -9,6 +9,7 @@ import MCalendar from "./components/m-calendar";
 import MsgCard from "./components/MsgCard";
 import EditProfile from "./components/editProfile";
 import Link from "next/link";
+import AddPointsModal from "./components/AddPointsModal";
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,6 +17,13 @@ export default function Home() {
     width: "20%",
     color: "red",
   };
+
+  const [open, setOpen] = useState(true)
+
+  const showModal = () => setOpen(true)
+  const togglePointModal = ()=>{
+    return setOpen(!open)
+  }
   const passages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 11, 12];
   return (
     <OtherLayout>
@@ -34,7 +42,7 @@ export default function Home() {
           <SearchInput></SearchInput>
         </section>
         <section className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-start md:space-x-10 py-14">
-          <PointCard />
+          <PointCard showModal={showModal} />
           <Metrics />
         </section>
         <div>
@@ -61,6 +69,7 @@ export default function Home() {
           <MCalendar />
         </div>
       </aside>
+      <AddPointsModal open={open} toggle={togglePointModal}/>
     </OtherLayout>
   );
 }

@@ -1,6 +1,6 @@
 import { LinkIcon } from "@heroicons/react/20/solid";
 
-export default function PointCard() {
+export default function PointCard({showModal}) {
   return (
     <>
       <div className="flex text-white items-center h-40 w-80 relative">
@@ -16,7 +16,7 @@ export default function PointCard() {
             <div className="text-yellow-300 text-sm">N 2304</div>
           </div>
         </div>
-        <button className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-yellow-400">
+        <button onClick={()=> showModal()} className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-yellow-400">
           <small>Add points</small> <LinkIcon className="h-4" />{" "}
         </button>
       </div>
