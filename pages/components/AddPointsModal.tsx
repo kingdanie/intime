@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { BanknotesIcon, BuildingLibraryIcon, CheckBadgeIcon, CheckIcon, CreditCardIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
 export default function AddPointsModal({open, toggle }) {
@@ -53,7 +53,7 @@ export default function AddPointsModal({open, toggle }) {
 
                     <div className="relative mt-3 rounded-md shadow-sm">
                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <MagnifyingGlassIcon
+                        <BanknotesIcon
                             className="h-5 w-5 text-gray-400"
                             aria-hidden="true"
                         />
@@ -62,13 +62,13 @@ export default function AddPointsModal({open, toggle }) {
                         type="text"
                         name="add-points"
                         id="add-points"
-                        className="h-12 border block min-w-full md:w-80 rounded-xl shadow-lg border pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        className="h-12 block min-w-full md:w-80 rounded-xl shadow-lg border pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         placeholder="Enter Amount in Naira"
                         />
                     </div>
                     <button onClick={() => setBankOptions(!bankOptions)} className="px-3 relative flex items-center w-full h-12 min-w-full md:w-80 rounded-xl shadow-lg border mt-1">
                         <div className="flex items-center">
-                        <MagnifyingGlassIcon
+                        <CheckBadgeIcon
                             className="h-5 w-5 text-gray-400"
                             aria-hidden="true"
                         />
@@ -81,7 +81,7 @@ export default function AddPointsModal({open, toggle }) {
                         {bankOptions ? <div className='min-w-full md:w-80 rounded-xl shadow-lg border'>
                             <button  className=" flex items-center w-full h-12  ">
                         <div className="flex items-center pl-3">
-                        <MagnifyingGlassIcon
+                        <BuildingLibraryIcon
                             className="h-5 w-5 text-gray-400"
                             aria-hidden="true"
                         />
@@ -90,7 +90,7 @@ export default function AddPointsModal({open, toggle }) {
                     </button>
                     <button  className=" flex items-center w-full h-12 min-w-full ">
                         <div className="flex items-center pl-3">
-                        <MagnifyingGlassIcon
+                        <CreditCardIcon
                             className="h-5 w-5 text-gray-400"
                             aria-hidden="true"
                         />
