@@ -7,7 +7,20 @@ import SearchInput from "./components/SearchInput";
 import EditProfile from "./components/editProfile";
 import OtherLayout from "./layout2";
 import { classNames } from "../utils/helpers";
+import AddContactModal from "./components/AddContact";
+import { useState } from "react";
 export default function About() {
+
+
+  const [open, setOpen] = useState(true)
+
+  const showModal = () => setOpen(true)
+  const togglePointModal = ()=>{
+    return setOpen(!open)
+  }
+  
+
+  
   return (
     <OtherLayout>
       <div
@@ -36,7 +49,7 @@ export default function About() {
               ].map((group) => (
                 <div
                   key={group.name}
-                  className="flex flex-col justify-between  items-center gap-5 border border-2 rounded-xl p-5"
+                  className="flex flex-col justify-between  items-center gap-5 border-2 rounded-xl p-5"
                 >
                   <div className="w-full">
                     <h3
@@ -69,7 +82,7 @@ export default function About() {
                         <span>+ {group.name.length}</span>
                       </div>
                     </div>
-                    <button className="flex h-7 w-2 justify-center items-center rounded-xl border bg-yellow-400 border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
+                    <button onClick={() => showModal()} className="flex h-7 w-2 justify-center items-center rounded-xl border bg-yellow-400 border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                       +
                     </button>
                   </div>
@@ -101,6 +114,7 @@ export default function About() {
             </h3>
             <div>
               <button
+                onClick={() => showModal()} 
                 className="text-sm text-gray-600 font-semibold 
                     relative flex py-3 px-5 
                     rounded-xl bg-yellow-400 shadow-md"
@@ -158,6 +172,7 @@ export default function About() {
           <MCalendar />
         </div>
       </aside>
+      <AddContactModal open={open} toggle={togglePointModal} />
     </OtherLayout>
   );
 }
