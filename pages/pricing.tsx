@@ -12,7 +12,16 @@ import Image from "next/image";
 import PricingArrows from "./../public/pricing-arrows.svg";
 import Transfer from "./../public/left-right-arrows.svg";
 import Chain from "./../public/chain.svg";
+import TransferModal from "./components/TransferModal";
 export default function Pricing() {
+
+  const [open, setOpen] = useState(true)
+
+  const showModal = () => setOpen(true)
+  const toggleTransferModal = ()=>{
+    return setOpen(!open)
+  }
+  
   return (
     <OtherLayout>
       {/* Your content */}
@@ -102,6 +111,7 @@ export default function Pricing() {
             <h3>Transfer points</h3>
             <p>Get points Directly from your bank account . Fast and secure.</p>
             <button
+            onClick={() => showModal()}
               className="text-sm text-gray-600 font-semibold 
                     relative flex px-6 py-5 space-x-3
                     rounded-xl bg-yellow-400"
@@ -124,6 +134,7 @@ export default function Pricing() {
           <MCalendar />
         </div>
       </aside>
+      <TransferModal open={open} toggle={toggleTransferModal}/>
     </OtherLayout>
   );
 }
