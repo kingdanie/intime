@@ -157,7 +157,7 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                     //   className="flex items-center rounded-lg p-4 text-indigo-200 hover:bg-indigo-700"
                     className={classNames(
                       item.href == route.pathname
-                        ? "bg-indigo-800 text-white rounded-xl"
+                        ? "bg-filler text-white rounded-xl"
                         : "text-gray-500 hover:text-white hover:bg-indigo-600 hover:bg-opacity-75",
                       "group flex items-center justify-center p-2 text-sm font-medium rounded-md"
                     )}

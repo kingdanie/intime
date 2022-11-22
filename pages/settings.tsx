@@ -20,7 +20,7 @@ export default function Settings() {
   return (
     <RootLayout>
       <div className="w-full flex flex-col">
-        <section className="bgs bg-purple-700 w-full p-10 h-24vh"></section>
+        <section className="bgs bg-filler w-full p-10 h-24vh"></section>
         <section className=" px-5 md:px-12 space-y-10 -mt-40">
           <AppHeader name="Settings" />
           <div
@@ -39,7 +39,7 @@ export default function Settings() {
               ></Image>
               <div
                 className="
-                bg-yellow-400 rounded-lg h-10 w-10  p-3 absolute 
+                bg-accent rounded-lg h-10 w-10  p-3 absolute 
                 bottom-1 right-2 flex items-center text-black 
                 "
               >
@@ -54,7 +54,7 @@ export default function Settings() {
               />
               <div
                 className="
-                bg-yellow-400 rounded-lg h-10 w-10  p-3 absolute 
+                bg-accent rounded-lg h-10 w-10  p-3 absolute 
                 bottom-0 right-0  
                 "
               >
