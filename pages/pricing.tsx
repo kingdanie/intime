@@ -78,7 +78,7 @@ export default function Pricing() {
         </section>
         <section className="grid md:grid-cols-10 md:p-10 gap-10 md:space-y-0">
           <div className="md:col-span-4 flex flex-col border border-solid border-gray-400 rounded-xl p-5 space-y-10">
-            <div className="flex items-center justify-center rounded-full p-2 bg-purple-800 w-10 h-10 text-white">
+            <div className="flex items-center justify-center rounded-full p-2 bg-filler w-10 h-10 text-white">
               +
             </div>
             <h3>Add Points</h3>
@@ -87,7 +87,7 @@ export default function Pricing() {
               <button
                 className="text-sm text-gray-600 font-semibold 
                     relative flex px-6 py-5 space-x-3
-                    rounded-xl bg-yellow-400
+                    rounded-xl bg-accent
                     align-end justify-self-end"
               >
                 <small>Add</small>
@@ -100,7 +100,7 @@ export default function Pricing() {
           <div className="hidden md:block md:col-span-2 "></div>
 
           <div className="md:col-span-4  border border-solid border-gray-400 rounded-xl p-5 space-y-10">
-            <div className="flex items-center justify-center rounded-full p-2 bg-yellow-400 w-10 h-10">
+            <div className="flex items-center justify-center rounded-full p-2 bg-accent w-10 h-10">
               <Image
                 src={Transfer}
                 width={20}
@@ -114,7 +114,7 @@ export default function Pricing() {
             onClick={() => showModal()}
               className="text-sm text-gray-600 font-semibold 
                     relative flex px-6 py-5 space-x-3
-                    rounded-xl bg-yellow-400"
+                    rounded-xl bg-accent"
             >
               <small>Transfer</small>
               <Image src={Chain} width={20} height={20} alt="chain"></Image>

@@ -55,7 +55,7 @@ export default function Messages() {
                 placeholder="Enter contact or group name"
               />
               <div className="absolute items-center inset-y-0 right-0 flex py-1.5 pr-1.5">
-                <button className="inline-flex h-7 w-2 justify-center items-center rounded-xl border bg-yellow-400 border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
+                <button className="inline-flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                   +
                 </button>
               </div>
@@ -85,7 +85,7 @@ export default function Messages() {
               ></textarea>
             </div>
             <div>
-              <button className="flex border items-center bg-yellow-400 p-3 space-x-5 rounded-lg w-full justify-center">
+              <button className="flex border items-center bg-accent p-3 space-x-5 rounded-lg w-full justify-center">
                 <span>Send</span> <PaperAirplaneIcon className="h-5" />
               </button>
             </div>

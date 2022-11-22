@@ -88,7 +88,7 @@ export default function AddContactModal({open, toggle }) {
                 <div className="mt-4 sm:mt-6">
                   <button
                     type="button"
-                    className="inline-flex w-full justify-center rounded-xl border border-transparent bg-yellow-400 px-4 py-4 text-base font-medium text-gray-500 shadow-sm hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:text-sm"
+                    className="inline-flex w-full justify-center rounded-xl border border-transparent bg-accent px-4 py-4 text-base font-medium text-gray-500 shadow-sm hover:bg-accent focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:text-sm"
                     onClick={() => toggle()}
                   >
                    Add contact 

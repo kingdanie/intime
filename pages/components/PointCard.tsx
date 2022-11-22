@@ -16,7 +16,7 @@ export default function PointCard({showModal}) {
             <div className="text-accent text-sm">N 2304</div>
           </div>
         </div>
-        <button onClick={()=> showModal()} className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-yellow-400">
+        <button onClick={()=> showModal()} className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-accent">
           <small>Add points</small> <LinkIcon className="h-4" />{" "}
         </button>
       </div>

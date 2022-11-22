@@ -82,7 +82,7 @@ export default function About() {
                         <span>+ {group.name.length}</span>
                       </div>
                     </div>
-                    <button onClick={() => showModal()} className="flex h-7 w-2 justify-center items-center rounded-xl border bg-yellow-400 border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
+                    <button onClick={() => showModal()} className="flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                       +
                     </button>
                   </div>
@@ -117,7 +117,7 @@ export default function About() {
                 onClick={() => showModal()} 
                 className="text-sm text-gray-600 font-semibold 
                     relative flex py-3 px-5 
-                    rounded-xl bg-yellow-400 shadow-md"
+                    rounded-xl bg-accent shadow-md"
               >
                 <small>Add new contact</small>
                 <LinkIcon className="h-4" />

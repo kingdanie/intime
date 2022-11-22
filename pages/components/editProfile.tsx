@@ -17,7 +17,7 @@ export default function EditProfile() {
       </div>
       <div>
         <Link href={"settings"}>
-          <button className="flex items-center text-xs text-gray-600 font-semibold space-x-2 py-3 px-4 bg-yellow-400 rounded-xl">
+          <button className="flex items-center text-xs text-gray-600 font-semibold space-x-2 py-3 px-4 bg-accent rounded-xl">
             Edit
             <div className="ml-3">
               <Image
