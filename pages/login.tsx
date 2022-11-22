@@ -22,7 +22,7 @@ export default function Register() {
 
   return (
     <div className="h-screen w-full flex flex-col md:flex-row items-center justify-center">
-      <div className="w-1/2 h-full bg-purple-700 flex flex-col items-center">
+      <div className="w-1/2 h-full bg-filler flex flex-col items-center">
         <Image src={'/login.png'} alt="login image" width={450} height={450} className="mb-10"></Image>
         <h3 className="text-white p-5">Don&apos;t have an account?</h3>
         <button className="ring-white ring-2 shadow focus:border-white focus:ring-white  py-2 px-5 rounded-lg text-sm text-white">
@@ -70,7 +70,7 @@ export default function Register() {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <button disabled={!validate()} className="text-sm bg-yellow-400 disabled:bg-slate-500 text-black rounded-lg py-3 px-5">
+              <button disabled={!validate()} className="text-sm bg-accent disabled:bg-slate-500 text-black rounded-lg py-3 px-5">
                 Login
               </button>
             </div>

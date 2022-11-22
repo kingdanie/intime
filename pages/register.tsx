@@ -70,14 +70,14 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <button className="text-sm bg-yellow-400 text-black rounded-lg py-3 px-5">
+              <button className="text-sm bg-accent text-black rounded-lg py-3 px-5">
                 Sign up
               </button>
             </div>
           </form>
         </div>
       </div>
-      <div className="w-1/2 h-full bg-purple-700 flex flex-col items-center pt-10">
+      <div className="w-1/2 h-full bg-filler flex flex-col items-center pt-10">
       <Image src={'/register.png'} alt="register image" width={450} height={450} className="mb-10"></Image>
         <h3 className="text-white p-5">Already have an account?</h3>
         <Link href="/login">
