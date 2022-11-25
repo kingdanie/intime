@@ -1,10 +1,16 @@
 import { ArrowSmallLeftIcon, ArrowSmallRightIcon, LockClosedIcon, UserIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { Router, useRouter } from "next/router";
+import { FormEvent, useContext, useState } from "react";
+import { UserContext } from "../contexts/UserContents";
+import { harperFetchJWTTokens } from "../utils/harperdb/fetchJWTTokens";
 import SocialLogin from "./components/social-login";
 export default function Register() {
 
+  const user = useContext(UserContext)
+  const router = useRouter()
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,12 +19,38 @@ export default function Register() {
     return username.trim().length & password.trim().length;
   };
   
-  function login(e: FormEvent<HTMLFormElement>): void {
+  async function handleLogin(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault()
     if(username == '' && password == '') return
+
+    try {
+      const { response, result } = await harperFetchJWTTokens(username, password)
+      const { status } = response
+      const accessToken = result.operation_token
+      if (status === 200 && accessToken) {
+        authenticateUser(username, accessToken)
+        router.push("/")
+
+      } else if (status === 401) {
+        // setError("Check your username and password are correct")
+        alert("Check your username and password are correct")
+      } else {
+        // setError("Whoops, something went wrong :(")
+        alert("Whoops, something went wrong :(")
+      }
+    } catch (err) {
+      console.log(err)
+      // setError("Whoops, something went wrong :(")
+      alert("Whoops, something went wrong :(")
+    }
+    
     setUsername('')
     setPassword('')
-    window.location.href = "/"
+  }
+
+  const authenticateUser = (username: string, accessToken: string) => {
+    user.setUsername(username)
+    localStorage.setItem("access_token", accessToken)
   }
 
   return (
@@ -42,7 +74,7 @@ export default function Register() {
       <div className="h-full w-1/2 py-5 px-10 flex justify-center overflow-y-auto items-center">
         <div className="flex flex-col w-4/5 max-w-lg">
           <h1 className="py-5 text-2xl font-bold">Login</h1>
-          <form className="space-y-8 " onSubmit={login}>
+          <form className="space-y-8 " onSubmit={handleLogin}>
             <div className="space-y-8 sm:space-y-10">
               {/* <div className="relative sm:pt-5 flex align-center ">
                       <input
