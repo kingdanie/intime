@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import AppHeader from "./components/AppHeader";
 import SearchInput from "./components/SearchInput";
 import OtherLayout from "./layout2";
@@ -10,8 +10,12 @@ import MsgCard from "./components/MsgCard";
 import EditProfile from "./components/editProfile";
 import Link from "next/link";
 import AddPointsModal from "./components/AddPointsModal";
+import { UserContext } from "../contexts/UserContents";
 
 export default function Home() {
+  
+  const { username } = useContext(UserContext)
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const layout = {
     width: "20%",
@@ -37,7 +41,7 @@ export default function Home() {
         <section className="flex justify-between">
           <div className="flex flex-col justify-between">
             <small>welcome</small>
-            <AppHeader name="Username" />
+            <AppHeader name={username} />
           </div>
           <SearchInput></SearchInput>
         </section>
@@ -51,7 +55,7 @@ export default function Home() {
             <Link href={'/history'}><h6>View full history</h6></Link>
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
-            <div className="mt-1 grid grid-cols-1">
+            <div className="">
               {passages.map((person) => (
                 <MsgCard message="" key={person} />
               ))}
