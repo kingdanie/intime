@@ -11,7 +11,8 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import { UserContext } from "../../contexts/UserContents";
 
 
 function classNames(...classes: any) {
@@ -19,6 +20,16 @@ function classNames(...classes: any) {
 }
 
 export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
+
+  const { username, setUsername } = useContext(UserContext)
+  const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token")
+    setUsername("")
+    router.push('/login')
+  }
+  
   const navigation = [
     { name: "Home", href: "/", icon: HomeIcon, current: true },
     { name: "Message", href: "/messages", icon: EnvelopeIcon, current: false },
@@ -114,16 +125,20 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                     </div>
                   </nav>
                 </div>
-                <div className="flex flex-shrink-0 border-t border-gray-200 p-4">
-                  <Link href="/login" className="group block flex-shrink-0">
+                <div className="flex flex-shrink-0 border-t border-gray-200 p-2">
+                  <button onClick={handleLogout} className="group block flex-shrink-0 mt-2 p-2">
                     <div className="flex items-center">
+                    <ArrowLeftOnRectangleIcon
+                  className="mr-4 h-6 w-6 text-gray-400 hover:text-gray-500"
+                  aria-hidden="true"
+                />
                       <div className="">
-                        <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700">
+                        <p className="text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">
                           Logout
                         </p>
                       </div>
                     </div>
-                  </Link>
+                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -142,7 +157,8 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
               <div className="flex items-center justify-center py-4">
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                  //src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                  src="https://tailwindui.com/img/logos/mark.svg?color=purple&shade=800"
                   alt="Your Company"
                 />
               </div>
@@ -158,7 +174,7 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                     className={classNames(
                       item.href == route.pathname
                         ? "bg-filler text-white rounded-xl"
-                        : "text-gray-500 hover:text-white hover:bg-indigo-600 hover:bg-opacity-75",
+                        : "text-gray-500 hover:text-white hover:bg-purple-800 hover:bg-opacity-75",
                       "group flex items-center justify-center p-2 text-sm font-medium rounded-md"
                     )}
                   >
@@ -169,9 +185,9 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
               </nav>
             </div>
             <div className="flex flex-shrink-0 pb-5 justify-center">
-              <Link
-                href="/login"
-                className="flex items-center rounded-lg p-4 text-gray-500 hover:bg-indigo-700"
+              <button
+                onClick={handleLogout}
+                className="flex items-center text-sm font-medium rounded-md p-2 text-gray-500 hover:text-white hover:bg-purple-800 hover:bg-opacity-75"
               >
                 <ArrowLeftOnRectangleIcon
                   className="h-6 w-6"
@@ -179,7 +195,7 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
                 />
 
                 <span className="sr-only">logout</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
