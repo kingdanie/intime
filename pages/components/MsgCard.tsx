@@ -1,7 +1,7 @@
 export default function MsgCard({ message }) {
   return (
     <>
-      <div className="relative flex my-5 items-center justify-between space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-pink-500 focus-within:ring-offset-2 hover:border-gray-400">
+      <div className="relative flex my-3 items-center justify-between space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-pink-500 focus-within:ring-offset-2 hover:border-gray-400">
         <div className="flex space-x-3">
           <div className="flex-shrink-0">
             <img className="h-10 w-10 rounded-full" src="/mary.png" alt="" />
