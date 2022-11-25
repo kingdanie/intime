@@ -1,9 +1,11 @@
+import { harperGetUserInfo } from './../utils/harperdb/getUserInfo';
 import { harperGetUsername } from '../utils/harperdb/getUsername';
 import { useState, useEffect } from "react"
 
 
 export const useUser = () => {
   const [username, setUsername] = useState("")
+  const [userInfo, setUserInfo] = useState([])
 
   useEffect(() => {
     // User is logged in
@@ -17,11 +19,13 @@ export const useUser = () => {
 
     async function tryLogUserIn(accessToken: string) {
       const username = await harperGetUsername(accessToken)
+      const userInfo = await harperGetUserInfo(username)
       if (username) {
         setUsername(username)
+        setUserInfo(userInfo)
       }
     }
   })
 
-  return { username, setUsername }
+  return { username, setUsername, userInfo, setUserInfo }
 }
