@@ -17,7 +17,7 @@ module.exports = {
       warning: 'rbg(var(--color-warning) / <alpha-value>)',
       danger: 'rbg(var(--color-danger) / <alpha-value>)',
       purpledark: 'rbg(var(--color-dark-purple) / <alpha-value>)',
-      text: 'rbg(var(--color-text-color) / <alpha-value>)',
+      text: '#949494',
       searchBar: 'rbg(var(--color-search-bar) / <alpha-value>)',
       hover: 'rbg(var(--color-hover) / <alpha-value>)',
       background: 'rbg(var(--color-background) / <alpha-value>)',
