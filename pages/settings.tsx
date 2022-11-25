@@ -7,16 +7,21 @@ import {
   UserIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AppHeader from "./components/AppHeader";
 import OtherLayout from "./layout2";
 import Accordion from "./components/Accordion";
 import { Disclosure } from "@headlessui/react";
 import RootLayout from "./layout";
 import AppSwitch from "./components/switch";
+import { UserContext } from "../contexts/UserContents";
+import { DevicePhoneMobileIcon } from "@heroicons/react/24/outline";
 
 export default function Settings() {
+  
   const [chevOn, setChevOn] = useState(false);
+  const { username, userInfo } = useContext(UserContext)
+
   return (
     <RootLayout>
       <div className="w-full flex flex-col">
@@ -62,12 +67,12 @@ export default function Settings() {
               </div>
             </div> */}
             <div className="col-span-3 flex flex-col space-y-1">
-              <h3 className="font-bold text-lg ">User Profile Name</h3>
+              <h3 className="font-bold text-lg ">{username}</h3>
               <p className="flex items-center space-x-2">
-                <EnvelopeIcon className="h-5 " /> <span>emailaddress</span>
+                <EnvelopeIcon className="h-5 " /> <span>{userInfo[0]?.email}</span>
               </p>
               <p className="flex items-center space-x-2">
-                <EnvelopeIcon className="h-5 " /> <span>phone_number</span>
+                <DevicePhoneMobileIcon className="h-5 " /> <span>{userInfo[0]?.phone}</span>
               </p>
             </div>
           </div>
