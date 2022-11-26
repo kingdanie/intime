@@ -2,9 +2,15 @@ import { LinkIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContents";
 
-export default function PointCard( showModal: ()=> boolean ) {
+export default function PointCard({ showModal } : { showModal: () => void } ) {
 
-  const { username, userInfo } = useContext(UserContext)
+  interface UserInfo {
+    points: number,
+    balance: string,
+    email: string,
+    avatar: string
+  }
+  const { userInfo }: {userInfo: UserInfo[] } = useContext(UserContext)
   
   return (
     <>
@@ -21,7 +27,7 @@ export default function PointCard( showModal: ()=> boolean ) {
             <div className="text-accent text-sm">N {userInfo[0]?.balance}</div>
           </div>
         </div>
-        <button onClick={()=> showModal()} className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-accent">
+        <button onClick={() => showModal()} className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-accent">
           <small>Add points</small> <LinkIcon className="h-4" />{" "}
         </button>
       </div>
