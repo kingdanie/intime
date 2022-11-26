@@ -2,7 +2,7 @@ import { LinkIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContents";
 
-export default function PointCard({showModal}) {
+export default function PointCard( showModal: ()=> boolean ) {
 
   const { username, userInfo } = useContext(UserContext)
   
