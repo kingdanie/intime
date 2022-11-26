@@ -5,7 +5,7 @@ import {
   Cog6ToothIcon,
   CreditCardIcon,
   EnvelopeIcon,
-  FolderIcon,
+  UserGroupIcon,
   HomeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -18,6 +18,7 @@ import { UserContext } from "../../contexts/UserContents";
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
+ 
 
 export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen: boolean, setSidebarOpen: (boolean: boolean) => boolean}) {
 
@@ -33,7 +34,7 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen
   const navigation = [
     { name: "Home", href: "/", icon: HomeIcon, current: true },
     { name: "Message", href: "/messages", icon: EnvelopeIcon, current: false },
-    { name: "Contacts", href: "/contact", icon: FolderIcon, current: false },
+    { name: "Contacts", href: "/contact", icon: UserGroupIcon, current: false },
     { name: "Pricing", href: "/pricing", icon: CreditCardIcon, current: false },
     {
       name: "Settings",
