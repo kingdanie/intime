@@ -139,10 +139,10 @@ export default function About() {
                 2,
                 1,
                 2,
-              ].map((contact) => (
+              ].map((contact, i) => (
                 <Link
                   href={""}
-                  key={contact}
+                  key={i}
                   className="flex justify-between px-5 py-7 
                             border border-2 rounded-xl 
                             text-gray-600 shadow-sm"
