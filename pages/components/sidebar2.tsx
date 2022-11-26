@@ -19,7 +19,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function SideBar2({ sidebarOpen, setSidebarOpen }) {
+export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen: boolean, setSidebarOpen: (boolean: boolean) => boolean}) {
 
   const { username, setUsername } = useContext(UserContext)
   const router = useRouter()
