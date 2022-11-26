@@ -1,11 +1,22 @@
 import { PaperAirplaneIcon, UserIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import AppHeader from "./components/AppHeader";
 import MCalendar from "./components/m-calendar";
 import RecentPicks from "./components/RecentPicks";
 import AppSwitch from "./components/switch";
 import OtherLayout from "./layout2";
 export default function Messages() {
+  
+      // const contactList: string[] = []
+      const [senderId, setSenderId] = useState('');
+      const [contact, setContact] = useState('');
+      const [contactList, setContactList] = useState([])
+      const addContact = () => {
+        setContactList([ ...contactList, contact])
+      }
+
   return (
+
     <OtherLayout>
       <div
         aria-labelledby="primary-heading"
@@ -34,6 +45,8 @@ export default function Messages() {
                 id="senderId"
                 className="h-16 border block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Sender ID"
+                value={senderId}
+                onChange={(e) => setSenderId(e.target.value)}
               />
             </div>
             <div className="flex justify-end items-center space-x-3 w-full">
@@ -53,28 +66,70 @@ export default function Messages() {
                 id="contact"
                 className="h-16 border block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Enter contact or group name"
+                value={contact}
+                onChange={(e) => setContact(e.target.value.trim())}
               />
-              <div className="absolute items-center inset-y-0 right-0 flex py-1.5 pr-1.5">
+              <div onClick={addContact} className="absolute items-center inset-y-0 right-0 flex py-1.5 pr-1.5">
                 <button className="inline-flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                   +
                 </button>
               </div>
             </div>
-            <div className="flex justify-end items-center space-x-3 w-full">
+            {/* <div className="flex justify-end items-center space-x-3 w-full">
               <div className="px-4 py-2 shadow-sm rounded-lg border-solid border-gray-300 border-2 space-x-5 flex">
                 <div className="flex items-center space-x-2">
+
+
                   <div
                     className="rounded-full border-solid border-2 border-gray-300 py-1 px-2 hover:bg-gray-300 
                     flex items-center justify-center
                     text-xs
                     "
                   >
+                   
                     {"hello".toUpperCase().slice(0, 1)}
                   </div>
+
+
                   <small>Hello</small>
+                  <div>
+                  </div>
                 </div>
                 <button>x</button>
               </div>
+            </div> */}
+
+            <div className="grid grid-cols-4 gap-3">
+
+            {contactList?.map(artist => (
+              
+          <div key={artist[artist]} className="px-4 py-2 shadow-sm rounded-lg border-solid border-gray-300 border-2 space-x-5 flex justify-between">
+            
+
+            <div className="flex items-center space-x-2">
+
+
+            <div
+                    className="rounded-full border-solid border-2 border-gray-300 py-1 px-2 hover:bg-gray-300 
+                    flex items-center justify-center
+                    text-xs
+                    "
+                  >
+                   
+                    {"hello".toUpperCase().slice(0, 1)}
+                  </div>
+            <small>{artist}</small>
+            </div>
+            <button onClick={() => {
+              setContactList(
+                contactList.filter(a =>
+                  a !== artist
+                )
+              );
+            }}>x</button>
+            
+            </div>
+        ))}
             </div>
             <div>
               <textarea
