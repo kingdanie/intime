@@ -1,8 +1,8 @@
 import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import uimage from "./../../public/user-profile.png";
-import editButton from "./../../public/edit.svg";
+import uimage from "/public/user-profile.png";
+import editButton from "/public/edit.svg";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContents";
 
