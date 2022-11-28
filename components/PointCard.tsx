@@ -1,6 +1,6 @@
 import { LinkIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContents";
+import { UserContext } from "../contexts/UserContents";
 
 export default function PointCard({ showModal } : { showModal: () => void } ) {
 

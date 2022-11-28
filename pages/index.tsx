@@ -1,15 +1,15 @@
 import { Fragment, useContext, useState } from "react";
-import AppHeader from "./components/AppHeader";
-import SearchInput from "./components/SearchInput";
+import AppHeader from "../components/AppHeader";
+import SearchInput from "../components/SearchInput";
 import OtherLayout from "./layout2";
 import { LinkIcon } from "@heroicons/react/20/solid";
-import PointCard from "./components/PointCard";
-import Metrics from "./components/metrics";
-import MCalendar from "./components/m-calendar";
-import MsgCard from "./components/MsgCard";
-import EditProfile from "./components/editProfile";
+import PointCard from "../components/PointCard";
+import Metrics from "../components/metrics";
+import MCalendar from "../components/m-calendar";
+import MsgCard from "../components/MsgCard";
+import EditProfile from "../components/editProfile";
 import Link from "next/link";
-import AddPointsModal from "./components/AddPointsModal";
+import AddPointsModal from "../components/AddPointsModal";
 import { UserContext } from "../contexts/UserContents";
 
 export default function Home() {

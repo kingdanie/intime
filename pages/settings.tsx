@@ -8,12 +8,12 @@ import {
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { useContext, useState } from "react";
-import AppHeader from "./components/AppHeader";
+import AppHeader from "../components/AppHeader";
 import OtherLayout from "./layout2";
-import Accordion from "./components/Accordion";
+import Accordion from "../components/Accordion";
 import { Disclosure } from "@headlessui/react";
 import RootLayout from "./layout";
-import AppSwitch from "./components/switch";
+import AppSwitch from "../components/switch";
 import { UserContext } from "../contexts/UserContents";
 import { DevicePhoneMobileIcon } from "@heroicons/react/24/outline";
 

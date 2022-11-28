@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useContext } from "react";
-import { UserContext } from "../../contexts/UserContents";
+import { UserContext } from "../contexts/UserContents";
 
 
 function classNames(...classes: any) {

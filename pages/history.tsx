@@ -1,5 +1,5 @@
-import AppHeader from "./components/AppHeader";
-import MsgCard from "./components/MsgCard";
+import AppHeader from "../components/AppHeader";
+import MsgCard from "../components/MsgCard";
 import RootLayout from "./layout";
 import OtherLayout from "./layout2";
 

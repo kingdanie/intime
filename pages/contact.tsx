@@ -1,13 +1,13 @@
 import { EnvelopeIcon, LinkIcon, UserIcon } from "@heroicons/react/20/solid";
 import { randomInt } from "crypto";
 import Link from "next/link";
-import AppHeader from "./components/AppHeader";
-import MCalendar from "./components/m-calendar";
-import SearchInput from "./components/SearchInput";
-import EditProfile from "./components/editProfile";
+import AppHeader from "../components/AppHeader";
+import MCalendar from "../components/m-calendar";
+import SearchInput from "../components/SearchInput";
+import EditProfile from "../components/editProfile";
 import OtherLayout from "./layout2";
 import { classNames } from "../utils/helpers";
-import AddContactModal from "./components/AddContact";
+import AddContactModal from "../components/AddContact";
 import { useState } from "react";
 export default function About() {
 

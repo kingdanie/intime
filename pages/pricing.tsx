@@ -1,18 +1,18 @@
 import { Fragment, useState } from "react";
-import AppHeader from "./components/AppHeader";
-import SearchInput from "./components/SearchInput";
+import AppHeader from "../components/AppHeader";
+import SearchInput from "../components/SearchInput";
 import OtherLayout from "./layout2";
-import PointCard from "./components/PointCard";
-import Metrics from "./components/metrics";
-import MCalendar from "./components/m-calendar";
-import MsgCard from "./components/MsgCard";
-import EditProfile from "./components/editProfile";
+import PointCard from "../components/PointCard";
+import Metrics from "../components/metrics";
+import MCalendar from "../components/m-calendar";
+import MsgCard from "../components/MsgCard";
+import EditProfile from "../components/editProfile";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import PricingArrows from "./../public/pricing-arrows.svg";
 import Transfer from "./../public/left-right-arrows.svg";
 import Chain from "./../public/chain.svg";
-import TransferModal from "./components/TransferModal";
+import TransferModal from "../components/TransferModal";
 export default function Pricing() {
 
   const [open, setOpen] = useState(true)

@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Sidebar2 from "./components/sidebar2";
+import Sidebar2 from "../components/sidebar2";
 import { Fragment, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import TopBar from "./components/topbar";
+import TopBar from "../components/topbar";
 
 export default function Test() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

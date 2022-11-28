@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import SocialLogin from "./components/social-login";
+import SocialLogin from "../components/social-login";
 import { ArrowSmallRightIcon, EnvelopeIcon, LockClosedIcon, UserIcon } from "@heroicons/react/24/outline";
 import React, { useContext, useState } from "react";
 import { postFormData } from "../utils/postFormData";
-import Alert from "./components/Alert";
+import Alert from "../components/Alert";
 import { harperFetchJWTTokens } from "../utils/harperdb/fetchJWTTokens";
 import { useRouter } from "next/router";
 import { UserContext } from "../contexts/UserContents";

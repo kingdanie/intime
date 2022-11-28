@@ -1,18 +1,25 @@
 import { PaperAirplaneIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import AppHeader from "./components/AppHeader";
-import MCalendar from "./components/m-calendar";
-import RecentPicks from "./components/RecentPicks";
-import AppSwitch from "./components/switch";
+import AppHeader from "../components/AppHeader";
+import MCalendar from "../components/m-calendar";
+import RecentPicks from "../components/RecentPicks";
+import AppSwitch from "../components/switch";
 import OtherLayout from "./layout2";
 export default function Messages() {
   
       // const contactList: string[] = []
       const [senderId, setSenderId] = useState('');
       const [contact, setContact] = useState('');
-      const [contactList, setContactList] = useState([])
+      const [contactList, setContactList] = useState([] as string[])
       const addContact = () => {
         setContactList([ ...contactList, contact])
+      }
+
+      interface Contact {
+        id?: number,
+        name: string,
+        phone: number,
+        email?: string
       }
 
   return (
@@ -101,9 +108,9 @@ export default function Messages() {
 
             <div className="grid grid-cols-4 gap-3">
 
-            {contactList?.map(artist => (
+            {contactList?.map((icontact, i) => (
               
-          <div key={artist[artist]} className="px-4 py-2 shadow-sm rounded-lg border-solid border-gray-300 border-2 space-x-5 flex justify-between">
+          <div key={i} className="px-4 py-2 shadow-sm rounded-lg border-solid border-gray-300 border-2 space-x-5 flex justify-between">
             
 
             <div className="flex items-center space-x-2">
@@ -118,12 +125,12 @@ export default function Messages() {
                    
                     {"hello".toUpperCase().slice(0, 1)}
                   </div>
-            <small>{artist}</small>
+            <small>{icontact}</small>
             </div>
             <button onClick={() => {
               setContactList(
                 contactList.filter(a =>
-                  a !== artist
+                  a !== icontact
                 )
               );
             }}>x</button>

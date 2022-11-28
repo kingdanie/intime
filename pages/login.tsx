@@ -5,7 +5,7 @@ import { Router, useRouter } from "next/router";
 import { FormEvent, useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContents";
 import { harperFetchJWTTokens } from "../utils/harperdb/fetchJWTTokens";
-import SocialLogin from "./components/social-login";
+import SocialLogin from "../components/social-login";
 export default function Register() {
 
   const user = useContext(UserContext)

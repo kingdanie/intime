@@ -1,8 +1,8 @@
 import styles from "../styles/Home.module.css";
-import Sidebar2 from "./components/sidebar2";
+import Sidebar2 from "../components/sidebar2";
 import { Fragment, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import TopBar from "./components/topbar";
+import TopBar from "../components/topbar";
 
 export default function OtherLayout({
   // Layouts must accept a children prop.
