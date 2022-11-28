@@ -1,5 +1,5 @@
 import { PaperAirplaneIcon, UserIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import AppHeader from "../components/AppHeader";
 import MCalendar from "../components/m-calendar";
 import RecentPicks from "../components/RecentPicks";
@@ -10,10 +10,11 @@ export default function Messages() {
       // const contactList: string[] = []
       const [senderId, setSenderId] = useState('');
       const [contact, setContact] = useState('');
+      const [msg, setMsg] = useState('');
       const [contactList, setContactList] = useState([] as string[])
-      const addContact = () => {
-        setContactList([ ...contactList, contact])
-      }
+      // const addContact = () => {
+      //   setContactList([ ...contactList, contact])
+      // }
 
       interface Contact {
         id?: number,
@@ -22,6 +23,16 @@ export default function Messages() {
         email?: string
       }
 
+      const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
+        let message = {
+          senderId: senderId,
+          contact: contact,
+          contactList: contactList,
+          message: msg
+        }
+        console.log(message)
+      }
   return (
 
     <OtherLayout>
@@ -38,7 +49,7 @@ export default function Messages() {
           </div>
         </section>
         <section className="py-14">
-          <div className="flex flex-col space-y-5 justify-start">
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-5 justify-start">
             <div className="relative rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <UserIcon
@@ -76,8 +87,8 @@ export default function Messages() {
                 value={contact}
                 onChange={(e) => setContact(e.target.value.trim())}
               />
-              <div onClick={addContact} className="absolute items-center inset-y-0 right-0 flex py-1.5 pr-1.5">
-                <button className="inline-flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
+              <div onClick={() =>  setContactList([ ...contactList, contact])} className="absolute items-center inset-y-0 right-0 flex py-1.5 pr-1.5">
+                <button type="button" className="inline-flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                   +
                 </button>
               </div>
@@ -144,6 +155,8 @@ export default function Messages() {
                 placeholder="Enter your message"
                 rows={10}
                 cols={60}
+                value={msg}
+                onChange={(e) => setMsg(e.target.value)}
               ></textarea>
             </div>
             <div>
@@ -151,7 +164,7 @@ export default function Messages() {
                 <span>Send</span> <PaperAirplaneIcon className="h-5" />
               </button>
             </div>
-          </div>
+          </form>
         </section>
 
         {/* Your content */}
