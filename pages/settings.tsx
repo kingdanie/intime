@@ -20,8 +20,13 @@ import { DevicePhoneMobileIcon } from "@heroicons/react/24/outline";
 export default function Settings() {
   
   const [chevOn, setChevOn] = useState(false);
-  const { username, userInfo } = useContext(UserContext)
+  const { username, userInfo } : { username: string, userInfo: UserInfo[]} = useContext(UserContext)
 
+  interface UserInfo {
+    email: string, 
+    phone: number,
+
+  }
   return (
     <RootLayout>
       <div className="w-full flex flex-col">
