@@ -144,7 +144,7 @@ export default function About() {
                   href={""}
                   key={i}
                   className="flex justify-between px-5 py-7 
-                            border border-2 rounded-xl 
+                            border-2 rounded-xl 
                             text-gray-600 shadow-sm"
                 >
                   <div className="flex space-x-3">
