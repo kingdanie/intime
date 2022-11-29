@@ -4,13 +4,7 @@ import { UserContext } from "../contexts/UserContents";
 
 export default function PointCard({ showModal } : { showModal: () => void } ) {
 
-  interface UserInfo {
-    points: number,
-    balance: string,
-    email: string,
-    avatar: string
-  }
-  const { userInfo }: {userInfo: UserInfo[] } = useContext(UserContext)
+  const { userInfo } = useContext(UserContext)
   
   return (
     <>
@@ -23,8 +17,8 @@ export default function PointCard({ showModal } : { showModal: () => void } ) {
           </div>
           <div className="flex flex-col space-y-1">
             <p className="text-sm text-white">Points</p>
-            <div className="text-4xl font-bold">{userInfo[0]?.points}</div>
-            <div className="text-accent text-sm">N {userInfo[0]?.balance}</div>
+            <div className="text-4xl font-bold">{userInfo.points}</div>
+            <div className="text-accent text-sm">N {userInfo.balance}</div>
           </div>
         </div>
         <button onClick={() => showModal()} className="text-sm text-gray-600 font-semibold absolute right-0 flex py-4 px-7 rounded-xl bg-accent">
