@@ -7,10 +7,10 @@ export interface Message {
     sent_date: string
 }
 
-interface Recipient {
+export interface Recipient {
     name?: string,
     phone: string,
     email?: string
 }
 
-enum Status {sent = "SENT", delivered = "DELIVERED", failed = "NOT SENT", scheduled = "SCHEDULED"}
+export enum Status {sent = "SENT", delivered = "DELIVERED", failed = "NOT SENT", scheduled = "SCHEDULED"}
