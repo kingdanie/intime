@@ -1,5 +1,5 @@
 export interface UserInfo {
-    email: string, 
+    email?: string, 
     phone: number,
     username?: string
 
