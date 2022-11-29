@@ -1,7 +1,6 @@
 // This function can only be ran on the backend as it requires a "super_user" password
 import { DB_URL } from "../../constants/constants"
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContents';
+
 
 export const harperCreateMsg = async (
     senderId: string,
