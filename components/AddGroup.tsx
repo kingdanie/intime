@@ -1,24 +1,22 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
-  CheckIcon,
-  MagnifyingGlassIcon,
-  PhoneIcon,
   UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronUpIcon, PaintBrushIcon } from "@heroicons/react/20/solid";
+import { AddGroupArgs } from "../types/AddGroupArgs";
 
 export default function AddGroupModal({
   open,
   toggle,
   addGroup,
-}) {
+} : AddGroupArgs) {
   const [groupName, setGroupName] = useState("");
   const [groupColor, setGroupColor] = useState("");
 
-  const handleGroupSubmit = (e: FormDataEvent) => {
-    e.preventDefault();
+  const handleGroupSubmit = () => {
+    
     if (
       groupName.length == 0 ||
       groupColor.length == 0
@@ -136,7 +134,7 @@ export default function AddGroupModal({
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-xl border border-transparent bg-accent disabled:bg-slate-300 disabled:ring-2 disabled:ring-slate-400 px-4 py-4 text-base font-medium text-gray-500 shadow-sm hover:bg-accent focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:text-sm"
-                    onClick={(e) => handleGroupSubmit(e)}
+                    onClick={() => handleGroupSubmit()}
                     disabled={validateForm()}
                   >
                     Add contact
