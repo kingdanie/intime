@@ -1,4 +1,8 @@
-import { EnvelopeIcon, LinkIcon, UserIcon } from "@heroicons/react/20/solid";
+import {
+  EnvelopeIcon,
+  LinkIcon,
+  UserIcon,
+} from "@heroicons/react/20/solid";
 import { randomInt } from "crypto";
 import Link from "next/link";
 import AppHeader from "../components/AppHeader";
@@ -11,49 +15,59 @@ import AddContactModal from "../components/AddContact";
 import { useContext, useState } from "react";
 import { ContactsContext } from "../contexts/ContactsContext";
 import { postFormData } from "../utils/postFormData";
-import { UserContext } from "../contexts/UserContents";
+import { UserContext } from "../contexts/UserContexts";
 import AddGroupModal from "../components/AddGroup";
 
-
 export default function Contact() {
+  const [open, setOpen] = useState(false);
+  const [groupModal, setGroupModal] = useState(false);
+  const { username } = useContext(UserContext);
+  const { contacts, getAndSetContacts } =
+    useContext(ContactsContext);
 
+  const showModal = () => setOpen(true);
+  const togglePointModal = () => {
+    return setOpen(!open);
+  };
 
-  const [open, setOpen] = useState(false)
-  const [groupModal, setGroupModal] = useState(false)
-  const { username } = useContext(UserContext)
-  const { contacts, getAndSetContacts } = useContext(ContactsContext)
+  const addGroup = (
+    groupName: string,
+    groupColor: string
+  ) => {
+    console.log(groupName, groupColor);
+  };
 
-  const showModal = () => setOpen(true)
-  const togglePointModal = ()=>{
-    return setOpen(!open)
-  }
-  
-  const addGroup = (groupName: string, groupColor: string) => {
-      console.log(groupName, groupColor)
-  }
+  const showGroupModal = () => {
+    setGroupModal(!groupModal);
+  };
 
-  const showGroupModal = () =>  {
-    setGroupModal(!groupModal)
-  } 
-
-  const addContact = async (contactName: string, contactNumber: string) => {
-    try{
-      let idata = {name: contactName, username: username, phone: contactNumber}  
-      console.log(idata)
-      const { response, result } = await postFormData(idata, '/api/contact')
-      const { status } = response
+  const addContact = async (
+    contactName: string,
+    contactNumber: string
+  ) => {
+    try {
+      let idata = {
+        name: contactName,
+        username: username,
+        phone: contactNumber,
+      };
+      console.log(idata);
+      const { response, result } = await postFormData(
+        idata,
+        "/api/contact"
+      );
+      const { status } = response;
 
       if (status === 200) {
-        alert('success')
+        alert("success");
       }
 
-      getAndSetContacts(username)
-
+      getAndSetContacts(username);
     } catch (err) {
-        console.log(err)
+      console.log(err);
     }
-  }
-  
+  };
+
   return (
     <OtherLayout>
       <div
@@ -76,8 +90,8 @@ export default function Contact() {
             <h3 className="font-bold ">Groups</h3>
           </div>
           <div>
-
-            <div className="
+            <div
+              className="
                     grid grid-col-2 
                     md:grid-cols-3 xl:grid-cols-4 
                     gap-3
@@ -108,7 +122,9 @@ export default function Contact() {
                   </div>
                   <div className="flex items-center justify-between w-full">
                     <div>
-                      <h6 className="text-sm">{group.name}</h6>
+                      <h6 className="text-sm">
+                        {group.name}
+                      </h6>
 
                       {/* icons of members in group*/}
                       <div className="flex space-x-2">
@@ -119,15 +135,18 @@ export default function Contact() {
                             text-xs
                           "
                         >
-                          {"hello".toUpperCase().slice(0, 1)}
+                          {"hello"
+                            .toUpperCase()
+                            .slice(0, 1)}
                         </div>
 
                         {/* amount of members in group*/}
                         <span>+ {group.name.length}</span>
                       </div>
                     </div>
-                    <button onClick={() => null} 
-                        className="flex h-7 w-2 justify-center 
+                    <button
+                      onClick={() => null}
+                      className="flex h-7 w-2 justify-center 
                           items-center rounded-xl border bg-accent 
                           border-gray-200 p-4 font-sans text-sm 
                           font-medium text-gray-400
@@ -141,50 +160,49 @@ export default function Contact() {
 
               {/* Create custom group */}
               <div className="h-full">
-                <div className="
+                <div
+                  className="
                         h-full flex flex-col justify-between 
                         space-y-10 items-center gap-5 
                         border-2 border-dashed border-gray-300 
                         rounded-xl p-5
                       "
                 >
-                  <h3 className="
+                  <h3
+                    className="
                         border border-dashed rounded-full 
                         text-lg text-center py-5 px-7
                       "
                   >
-                    {" "} + {" "}
+                    {" "}
+                    +{" "}
                   </h3>
                   <div>
-
-                    <button onClick={() => showGroupModal()} 
-                        className="
+                    <button
+                      onClick={() => showGroupModal()}
+                      className="
                           border border-solid rounded-lg 
                           px-3 py-1.5 hover:bg-accent
                         "
                     >
                       <small>Create group</small>
                     </button>
-
                   </div>
                 </div>
               </div>
             </div>
-            
           </div>
         </section>
 
         <div>
           <div className="flex justify-between">
-
             <h3 className="font-bold ">
               Contacts <span>12</span>
             </h3>
-            
-            <div>
 
+            <div>
               <button
-                onClick={() => showModal()} 
+                onClick={() => showModal()}
                 className="text-sm text-gray-600 font-semibold 
                     relative flex py-3 px-5 
                     rounded-xl bg-accent shadow-md"
@@ -192,11 +210,9 @@ export default function Contact() {
                 <small>Add new contact</small>
                 <LinkIcon className="h-4" />
               </button>
-
             </div>
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
-
             <div className="mt-1 grid  grid-cols-2 md:grid-cols-3 gap-5 ">
               {contacts.map((contact) => (
                 <Link
@@ -211,7 +227,11 @@ export default function Contact() {
                       <UserIcon className="h-6" />
                     </div>
                     <div>
-                      <span>{contact.name ? contact.name : contact.phone}</span>
+                      <span>
+                        {contact.name
+                          ? contact.name
+                          : contact.phone}
+                      </span>
                     </div>
                   </div>
                   <EnvelopeIcon className="h-6" />
@@ -224,25 +244,33 @@ export default function Contact() {
       </div>
 
       {/* Secondary column (hidden on smaller screens) */}
-      <aside className="
+      <aside
+        className="
                 hidden lg:order-last lg:block 
                 lg:flex-shrink-0 pt-10
               "
       >
-        <div className="
+        <div
+          className="
                 relative flex h-full w-80 
                 flex-col px-2 items-center
               "
         >
-
           {/* Your content */}
           <EditProfile />
           <MCalendar />
-
         </div>
       </aside>
-      <AddContactModal open={open} addContact={addContact} toggle={togglePointModal} />
-      <AddGroupModal open={groupModal} addGroup={addGroup} toggle={showGroupModal} />
+      <AddContactModal
+        open={open}
+        addContact={addContact}
+        toggle={togglePointModal}
+      />
+      <AddGroupModal
+        open={groupModal}
+        addGroup={addGroup}
+        toggle={showGroupModal}
+      />
     </OtherLayout>
   );
 }

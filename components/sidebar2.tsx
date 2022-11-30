@@ -12,37 +12,65 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useContext } from "react";
-import { UserContext } from "../contexts/UserContents";
-
+import { UserContext } from "../contexts/UserContexts";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
- 
 
-export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen: boolean, setSidebarOpen: (boolean: boolean) => boolean}) {
-
-  const { username, setUsername } = useContext(UserContext)
-  const router = useRouter()
+export default function SideBar2({
+  sidebarOpen,
+  setSidebarOpen,
+}: {
+  sidebarOpen: boolean;
+  setSidebarOpen: (boolean: boolean) => boolean;
+}) {
+  const { username, setUsername } = useContext(UserContext);
+  const router = useRouter();
 
   const handleLogout = () => {
-    localStorage.removeItem("access_token")
-    setUsername("")
-    router.push('/login')
-  }
-  
+    localStorage.removeItem("access_token");
+    setUsername("");
+    router.push("/login");
+  };
+
   const navigation = [
-    { name: "Home", href: "/", icon: HomeIcon, current: true },
-    { name: "Message", href: "/messages", icon: EnvelopeIcon, current: false },
-    { name: "Contacts", href: "/contact", icon: UserGroupIcon, current: false },
-    { name: "Pricing", href: "/pricing", icon: CreditCardIcon, current: false },
+    {
+      name: "Home",
+      href: "/",
+      icon: HomeIcon,
+      current: true,
+    },
+    {
+      name: "Message",
+      href: "/messages",
+      icon: EnvelopeIcon,
+      current: false,
+    },
+    {
+      name: "Contacts",
+      href: "/contact",
+      icon: UserGroupIcon,
+      current: false,
+    },
+    {
+      name: "Pricing",
+      href: "/pricing",
+      icon: CreditCardIcon,
+      current: false,
+    },
     {
       name: "Settings",
       href: "/settings",
       icon: Cog6ToothIcon,
       current: false,
     },
-    { name: "History", href: "/history", icon: ArchiveBoxIcon, current: false },
+    {
+      name: "History",
+      href: "/history",
+      icon: ArchiveBoxIcon,
+      current: false,
+    },
   ];
 
   const route = useRouter();
@@ -92,7 +120,9 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen
                       className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                       onClick={() => setSidebarOpen(false)}
                     >
-                      <span className="sr-only">Close sidebar</span>
+                      <span className="sr-only">
+                        Close sidebar
+                      </span>
                       <XMarkIcon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
@@ -108,7 +138,10 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen
                       alt="Your Company"
                     />
                   </div>
-                  <nav aria-label="Sidebar" className="mt-5">
+                  <nav
+                    aria-label="Sidebar"
+                    className="mt-5"
+                  >
                     <div className="space-y-1 px-2">
                       {navigation.map((item) => (
                         <a
@@ -127,12 +160,15 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen
                   </nav>
                 </div>
                 <div className="flex flex-shrink-0 border-t border-gray-200 p-2">
-                  <button onClick={handleLogout} className="group block flex-shrink-0 mt-2 p-2">
+                  <button
+                    onClick={handleLogout}
+                    className="group block flex-shrink-0 mt-2 p-2"
+                  >
                     <div className="flex items-center">
-                    <ArrowLeftOnRectangleIcon
-                  className="mr-4 h-6 w-6 text-gray-400 hover:text-gray-500"
-                  aria-hidden="true"
-                />
+                      <ArrowLeftOnRectangleIcon
+                        className="mr-4 h-6 w-6 text-gray-400 hover:text-gray-500"
+                        aria-hidden="true"
+                      />
                       <div className="">
                         <p className="text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">
                           Logout
@@ -143,7 +179,10 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen
                 </div>
               </Dialog.Panel>
             </Transition.Child>
-            <div className="w-14 flex-shrink-0" aria-hidden="true">
+            <div
+              className="w-14 flex-shrink-0"
+              aria-hidden="true"
+            >
               {/* Force sidebar to shrink to fit close icon */}
             </div>
           </div>
@@ -179,8 +218,13 @@ export default function SideBar2({ sidebarOpen, setSidebarOpen } : { sidebarOpen
                       "group flex items-center justify-center p-2 text-sm font-medium rounded-md"
                     )}
                   >
-                    <item.icon className="h-6 w-6" aria-hidden="true" />
-                    <span className="sr-only">{item.name}</span>
+                    <item.icon
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                    />
+                    <span className="sr-only">
+                      {item.name}
+                    </span>
                   </Link>
                 ))}
               </nav>

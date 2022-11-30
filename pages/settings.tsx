@@ -10,18 +10,16 @@ import AppHeader from "../components/AppHeader";
 import { Disclosure } from "@headlessui/react";
 import RootLayout from "./layout";
 import AppSwitch from "../components/switch";
-import { UserContext } from "../contexts/UserContents";
+import { UserContext } from "../contexts/UserContexts";
 import { DevicePhoneMobileIcon } from "@heroicons/react/24/outline";
 
 export default function Settings() {
-  
   const [chevOn, setChevOn] = useState(false);
-  const { username, userInfo } = useContext(UserContext)
+  const { username, userInfo } = useContext(UserContext);
 
   interface UserInfo {
-    email: string, 
-    phone: number,
-
+    email: string;
+    phone: number;
   }
   return (
     <RootLayout>
@@ -37,27 +35,23 @@ export default function Settings() {
             "
           >
             <div className="relative flex col-span-2">
+              <Image
+                src={"/user-profile.png"}
+                width={250}
+                height={250}
+                alt="profile picture"
+              ></Image>
 
-                <Image
-                  src={"/user-profile.png"}
-                  width={250}
-                  height={250}
-                  alt="profile picture"
-                >
-                </Image>
-
-                <div
-                  className="
+              <div
+                className="
                     bg-accent rounded-lg h-10 w-10  p-3 absolute 
                     bottom-1 right-2 flex items-center text-black 
                   "
-                >
-                  
-                  <img src="/edit.svg" alt="edit button" />
-
-                </div>
+              >
+                <img src="/edit.svg" alt="edit button" />
+              </div>
             </div>
-                  {/* 
+            {/* 
                     <div className="relative inline-block col-span-2">
                       <img
                         className="h-fit w-fit rounded-full"
@@ -75,17 +69,22 @@ export default function Settings() {
                     </div> 
                   */}
             <div className="col-span-3 flex flex-col space-y-1">
-              <h3 className="font-bold text-lg ">{username}</h3>
+              <h3 className="font-bold text-lg ">
+                {username}
+              </h3>
               <p className="flex items-center space-x-2">
-                <EnvelopeIcon className="h-5 " /> <span>{userInfo.email}</span>
+                <EnvelopeIcon className="h-5 " />{" "}
+                <span>{userInfo.email}</span>
               </p>
               <p className="flex items-center space-x-2">
-                <DevicePhoneMobileIcon className="h-5 " /> <span>{userInfo.phone}</span>
+                <DevicePhoneMobileIcon className="h-5 " />{" "}
+                <span>{userInfo.phone}</span>
               </p>
             </div>
           </div>
           <div className="mt-10 py-6 space-y-10">
-            <div className="
+            <div
+              className="
                     mx-auto rounded-lg px-10  
                     py-6 shadow-md border border-solid  
                     hover:bg-gray-100 focus:outline-none 
@@ -96,8 +95,8 @@ export default function Settings() {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button 
-                        className="
+                    <Disclosure.Button
+                      className="
                             flex w-full justify-between 
                             text-left text-sm font-medium 
                             text-gray-900
@@ -106,10 +105,17 @@ export default function Settings() {
                       <div className="inline-flex">
                         <span className="mt-0.5 w-5 h-5 mr-5  bg-gray-300"></span>
                         <div className="block">
-                          <h3 className="text-lg">Account Settings</h3>
-                          <p className={`${open ? "hidden" : "block"} mt-5`}>
+                          <h3 className="text-lg">
+                            Account Settings
+                          </h3>
+                          <p
+                            className={`${
+                              open ? "hidden" : "block"
+                            } mt-5`}
+                          >
                             {" "}
-                            Change password, Change username, Set sender ID,
+                            Change password, Change
+                            username, Set sender ID,
                             Add/change number
                           </p>
                         </div>
@@ -120,7 +126,7 @@ export default function Settings() {
                         } h-8 w-8 text-gray-500 self-center`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel 
+                    <Disclosure.Panel
                       className="
                           mt-16 pb-5 text-sm text-gray-500 
                           grid lg:grid-cols-2 gap-10
@@ -163,8 +169,14 @@ export default function Settings() {
                       <div className="inline-flex">
                         <span className="mt-0.5 w-5 h-5 mr-5  bg-gray-300"></span>
                         <div className="block">
-                          <h3 className="text-lg">Display</h3>
-                          <p className={`${open ? "hidden" : "block"} mt-5`}>
+                          <h3 className="text-lg">
+                            Display
+                          </h3>
+                          <p
+                            className={`${
+                              open ? "hidden" : "block"
+                            } mt-5`}
+                          >
                             {" "}
                             Dark theme
                           </p>

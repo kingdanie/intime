@@ -1,57 +1,68 @@
-import { ArrowSmallLeftIcon, ArrowSmallRightIcon, LockClosedIcon, UserIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowSmallLeftIcon,
+  ArrowSmallRightIcon,
+  LockClosedIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
 import { FormEvent, useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContents";
+import { UserContext } from "../contexts/UserContexts";
 import { harperFetchJWTTokens } from "../utils/harperdb/fetchJWTTokens";
 import SocialLogin from "../components/social-login";
 export default function Register() {
+  const user = useContext(UserContext);
+  const router = useRouter();
 
-  const user = useContext(UserContext)
-  const router = useRouter()
-  
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   // disable submit when inputs are empty
   const validate = () => {
     return username.trim().length & password.trim().length;
   };
-  
-  async function handleLogin(e: FormEvent<HTMLFormElement>): Promise<void> {
-    e.preventDefault()
-    if(username == '' && password == '') return
+
+  async function handleLogin(
+    e: FormEvent<HTMLFormElement>
+  ): Promise<void> {
+    e.preventDefault();
+    if (username == "" && password == "") return;
 
     try {
-      const { response, result } = await harperFetchJWTTokens(username, password)
-      const { status } = response
-      const accessToken = result.operation_token
+      const { response, result } =
+        await harperFetchJWTTokens(username, password);
+      const { status } = response;
+      const accessToken = result.operation_token;
       if (status === 200 && accessToken) {
-        authenticateUser(username, accessToken)
-        router.push("/")
-
+        authenticateUser(username, accessToken);
+        router.push("/");
       } else if (status === 401) {
         // setError("Check your username and password are correct")
-        alert("Check your username and password are correct")
+        alert(
+          "Check your username and password are correct"
+        );
       } else {
         // setError("Whoops, something went wrong :(")
-        alert("Whoops, something went wrong :(")
+        alert("Whoops, something went wrong :(");
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
       // setError("Whoops, something went wrong :(")
-      alert("Whoops, something went wrong :(")
+      alert("Whoops, something went wrong :(");
     }
-    
-    setUsername('')
-    setPassword('')
+
+    setUsername("");
+    setPassword("");
   }
 
-  const authenticateUser = (username: string, accessToken: string) => {
-    user.setUsername(username)
-    localStorage.setItem("access_token", accessToken)
-  }
+  const authenticateUser = (
+    username: string,
+    accessToken: string
+  ) => {
+    user.setUsername(username);
+    localStorage.setItem("access_token", accessToken);
+  };
 
   return (
     <div className="h-screen w-full flex flex-col md:flex-row items-center justify-center">
@@ -63,7 +74,9 @@ export default function Register() {
           height={450}
           className="mb-10"
         ></Image>
-        <h3 className="text-white p-5">Don&apos;t have an account?</h3>
+        <h3 className="text-white p-5">
+          Don&apos;t have an account?
+        </h3>
         <Link href="/register">
           <button className="ring-white ring-2 shadow-md flex items-center space-x-3 focus:border-white focus:ring-white  py-3 px-5 rounded-xl text-sm text-white">
             <ArrowSmallLeftIcon className="w-4" />
@@ -74,7 +87,10 @@ export default function Register() {
       <div className="h-full w-1/2 py-5 px-10 flex justify-center overflow-y-auto items-center">
         <div className="flex flex-col w-4/5 max-w-lg">
           <h1 className="py-5 text-2xl font-bold">Login</h1>
-          <form className="space-y-8 " onSubmit={handleLogin}>
+          <form
+            className="space-y-8 "
+            onSubmit={handleLogin}
+          >
             <div className="space-y-8 sm:space-y-10">
               {/* <div className="relative sm:pt-5 flex align-center ">
                       <input
@@ -120,7 +136,9 @@ export default function Register() {
                   autoComplete="disable"
                   required
                   value={username}
-                  onChange={(event) => setUsername(event.target.value)}
+                  onChange={(event) =>
+                    setUsername(event.target.value)
+                  }
                   className="h-12 border block min-w-full  rounded-xl shadow-lg border-gray-300 pl-10 focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                 />
               </div>
@@ -139,7 +157,9 @@ export default function Register() {
                   required
                   className="h-12 border block min-w-full  rounded-xl shadow-lg border-gray-300 pl-10 focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
                   value={password}
-                  onChange={(event) => setPassword(event.target.value)}
+                  onChange={(event) =>
+                    setPassword(event.target.value)
+                  }
                 />
               </div>
             </div>
@@ -148,14 +168,20 @@ export default function Register() {
                 disabled={!validate()}
                 className="flex text-sm bg-accent space-x-3 shadow-md disabled:bg-slate-500 text-black rounded-xl py-4 px-5"
               >
-                <span className="text-black font-semibold">Login</span>
+                <span className="text-black font-semibold">
+                  Login
+                </span>
 
                 <ArrowSmallRightIcon className="w-5" />
               </button>
             </div>
           </form>
-          <div className="py-5 flex items-center justify-center">or</div>
-          <div className="text-xs text-gray-500">Login with</div>
+          <div className="py-5 flex items-center justify-center">
+            or
+          </div>
+          <div className="text-xs text-gray-500">
+            Login with
+          </div>
           <SocialLogin />
         </div>
       </div>

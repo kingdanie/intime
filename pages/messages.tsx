@@ -1,10 +1,13 @@
-import { PaperAirplaneIcon, UserIcon } from "@heroicons/react/24/outline";
+import {
+  PaperAirplaneIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import { FormEvent, useContext, useState } from "react";
 import AppHeader from "../components/AppHeader";
 import MCalendar from "../components/m-calendar";
 import RecentPicks from "../components/RecentPicks";
 import AppSwitch from "../components/switch";
-import { UserContext } from "../contexts/UserContents";
+import { UserContext } from "../contexts/UserContexts";
 import OtherLayout from "./layout2";
 import { postFormData } from "../utils/postFormData";
 import { Message, Recipient } from "../types/Message";
@@ -16,18 +19,25 @@ export default function Messages() {
   const [senderId, setSenderId] = useState("");
   const [contact, setContact] = useState("");
   const [msg, setMsg] = useState("");
-  const [contactList, setContactList] = useState([] as Recipient[]);
+  const [contactList, setContactList] = useState(
+    [] as Recipient[]
+  );
   // const addContact = () => {
   //   setContactList([ ...contactList, contact])
   // }
 
   const addContact = () => {
-    setContactList([...contactList, {name: contact, phone: senderId}])
-    setSenderId("")
-    setContact("")
-  }
+    setContactList([
+      ...contactList,
+      { name: contact, phone: senderId },
+    ]);
+    setSenderId("");
+    setContact("");
+  };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
     // let setDay = new Date().getTime()
@@ -35,13 +45,16 @@ export default function Messages() {
       reciever_number: contactList,
       message: msg,
       username: username,
-      sent_date: `${new Date().getTime()}`
+      sent_date: `${new Date().getTime()}`,
     };
     console.log(message);
 
     if (contactList.length == 0 && senderId == "") return;
 
-    const { response, result } = await postFormData(message, "/api/messages");
+    const { response, result } = await postFormData(
+      message,
+      "/api/messages"
+    );
 
     // Account not created successfully
     if (response.status !== 200) {
@@ -97,7 +110,9 @@ export default function Messages() {
                 className="h-16 border block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Sender ID"
                 value={senderId}
-                onChange={(e) => setSenderId(e.target.value)}
+                onChange={(e) =>
+                  setSenderId(e.target.value)
+                }
               />
             </div>
             <div className="flex justify-end items-center space-x-3 w-full">
@@ -118,7 +133,9 @@ export default function Messages() {
                 className="h-16 border block min-w-full md:w-96 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 placeholder="Enter contact or group name"
                 value={contact}
-                onChange={(e) => setContact(e.target.value.trim())}
+                onChange={(e) =>
+                  setContact(e.target.value.trim())
+                }
               />
               <div
                 onClick={addContact}
@@ -171,11 +188,19 @@ export default function Messages() {
                     >
                       {"hello".toUpperCase().slice(0, 1)}
                     </div>
-                    <small>{icontact.name ? icontact.name : icontact.phone}</small>
+                    <small>
+                      {icontact.name
+                        ? icontact.name
+                        : icontact.phone}
+                    </small>
                   </div>
                   <button
                     onClick={() => {
-                      setContactList(contactList.filter((a) => a !== icontact));
+                      setContactList(
+                        contactList.filter(
+                          (a) => a !== icontact
+                        )
+                      );
                     }}
                   >
                     x
@@ -195,7 +220,8 @@ export default function Messages() {
             </div>
             <div>
               <button className="flex border items-center bg-accent p-3 space-x-5 rounded-lg w-full justify-center">
-                <span>Send</span> <PaperAirplaneIcon className="h-5" />
+                <span>Send</span>{" "}
+                <PaperAirplaneIcon className="h-5" />
               </button>
             </div>
           </form>
@@ -209,7 +235,9 @@ export default function Messages() {
         <div className="relative flex h-full w-96 flex-col px-2 items-center">
           {/* Your content */}
           <div className="flex justify-end items-center space-x-5 w-full">
-            <span className="font-semibold">Scheduled message</span>
+            <span className="font-semibold">
+              Scheduled message
+            </span>
             <AppSwitch name="schedule msg" />
           </div>
           <MCalendar />

@@ -10,11 +10,10 @@ import MsgCard from "../components/MsgCard";
 import EditProfile from "../components/editProfile";
 import Link from "next/link";
 import AddPointsModal from "../components/AddPointsModal";
-import { UserContext } from "../contexts/UserContents";
+import { UserContext } from "../contexts/UserContexts";
 
 export default function Home() {
-  
-  const { username } = useContext(UserContext)
+  const { username } = useContext(UserContext);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const layout = {
@@ -22,12 +21,12 @@ export default function Home() {
     color: "red",
   };
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
-  const showModal = () => setOpen(true)
-  const togglePointModal = ()=>{
-    return setOpen(!open)
-  }
+  const showModal = () => setOpen(true);
+  const togglePointModal = () => {
+    return setOpen(!open);
+  };
   const passages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 11, 12];
   return (
     <OtherLayout>
@@ -52,7 +51,9 @@ export default function Home() {
         <div>
           <div className="flex justify-between">
             <h3 className="font-bold ">Recents</h3>
-            <Link href={'/history'}><h6>View full history</h6></Link>
+            <Link href={"/history"}>
+              <h6>View full history</h6>
+            </Link>
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
             <div className="">
@@ -73,7 +74,10 @@ export default function Home() {
           <MCalendar />
         </div>
       </aside>
-      <AddPointsModal open={open} toggle={togglePointModal}/>
+      <AddPointsModal
+        open={open}
+        toggle={togglePointModal}
+      />
     </OtherLayout>
   );
 }

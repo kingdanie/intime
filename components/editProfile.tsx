@@ -4,15 +4,19 @@ import Link from "next/link";
 import uimage from "/public/user-profile.png";
 import editButton from "/public/edit.svg";
 import { useContext } from "react";
-import { UserContext } from "../contexts/UserContents";
+import { UserContext } from "../contexts/UserContexts";
 
 export default function EditProfile() {
+  const { username, userInfo } = useContext(UserContext);
 
-  const { username, userInfo } = useContext(UserContext)
-  
   return (
     <div className="w-full text-gray-600 flex flex-col items-center justify-between space-y-5 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-lg">
-      <Image src={uimage} height="50" width="70" alt="user profile" />
+      <Image
+        src={uimage}
+        height="50"
+        width="70"
+        alt="user profile"
+      />
       <div className="flex flex-col items-center">
         <h3 className="font-extrabold mb-1">{username}</h3>
         <div className="flex items-center">
