@@ -8,18 +8,24 @@ import EditProfile from "../components/editProfile";
 import OtherLayout from "./layout2";
 import { classNames } from "../utils/helpers";
 import AddContactModal from "../components/AddContact";
-import { useState } from "react";
-export default function About() {
+import { useContext, useState } from "react";
+import { ContactsContext } from "../contexts/ContactsContext";
+
+
+export default function Contact() {
 
 
   const [open, setOpen] = useState(true)
+  const { contacts } = useContext(ContactsContext)
 
   const showModal = () => setOpen(true)
   const togglePointModal = ()=>{
     return setOpen(!open)
   }
   
+  const addContact = () => {
 
+  }
   
   return (
     <OtherLayout>
@@ -125,24 +131,12 @@ export default function About() {
             </div>
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
+
             <div className="mt-1 grid  grid-cols-2 md:grid-cols-3 gap-5 ">
-              {[
-                "Gabriel",
-                "Akinola",
-                "Mary",
-                "Akinola",
-                "Tunmise",
-                "Daniel",
-                "Victor",
-                8,
-                4,
-                2,
-                1,
-                2,
-              ].map((contact, i) => (
+              {contacts.map((contact) => (
                 <Link
                   href={""}
-                  key={i}
+                  key={contact.contactId}
                   className="flex justify-between px-5 py-7 
                             border-2 rounded-xl 
                             text-gray-600 shadow-sm"
@@ -152,7 +146,7 @@ export default function About() {
                       <UserIcon className="h-6" />
                     </div>
                     <div>
-                      <span>{contact}</span>
+                      <span>{contact.name ? contact.name : contact.phone}</span>
                     </div>
                   </div>
                   <EnvelopeIcon className="h-6" />
