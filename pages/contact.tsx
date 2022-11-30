@@ -10,20 +10,49 @@ import { classNames } from "../utils/helpers";
 import AddContactModal from "../components/AddContact";
 import { useContext, useState } from "react";
 import { ContactsContext } from "../contexts/ContactsContext";
+import { postFormData } from "../utils/postFormData";
+import { UserContext } from "../contexts/UserContents";
+import AddGroupModal from "../components/AddGroup";
 
 
 export default function Contact() {
 
 
-  const [open, setOpen] = useState(true)
-  const { contacts } = useContext(ContactsContext)
+  const [open, setOpen] = useState(false)
+  const [groupModal, setGroupModal] = useState(false)
+  const { username } = useContext(UserContext)
+  const { contacts, getAndSetContacts } = useContext(ContactsContext)
 
   const showModal = () => setOpen(true)
   const togglePointModal = ()=>{
     return setOpen(!open)
   }
   
-  const addContact = () => {
+  const addGroup = (groupName: string, groupColor: string) => {
+      console.log(groupName, groupColor)
+  }
+
+  const showGroupModal = () =>  {
+    setGroupModal(!groupModal)
+  } 
+
+  const addContact = async (contactName: string, contactNumber: string) => {
+    try{
+      let idata = {name: contactName, username: username, phone: contactNumber}
+      // let idata = {name: "hello", username: username, phone: "2354"}
+  
+      console.log(idata)
+      const { response, result } = await postFormData(idata, '/api/contact')
+      const { status } = response
+      if (status === 200) {
+        alert('success')
+
+      }
+      getAndSetContacts(username)
+
+    } catch (err) {
+        console.log(err)
+    }
 
   }
   
@@ -88,7 +117,7 @@ export default function Contact() {
                         <span>+ {group.name.length}</span>
                       </div>
                     </div>
-                    <button onClick={() => showModal()} className="flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
+                    <button onClick={() => null} className="flex h-7 w-2 justify-center items-center rounded-xl border bg-accent border-gray-200 p-4 font-sans text-sm font-medium text-gray-400">
                       +
                     </button>
                   </div>
@@ -103,7 +132,7 @@ export default function Contact() {
                     +{" "}
                   </h3>
                   <div>
-                    <button className="border border-solid border-gray-500 rounded-lg px-1 py-1.5">
+                    <button onClick={() => showGroupModal()} className="border border-solid rounded-lg px-3 py-1.5 hover:bg-accent">
                       <small>Create group</small>
                     </button>
                   </div>
@@ -166,7 +195,8 @@ export default function Contact() {
           <MCalendar />
         </div>
       </aside>
-      <AddContactModal open={open} toggle={togglePointModal} />
+      <AddContactModal open={open} addContact={addContact} toggle={togglePointModal} />
+      <AddGroupModal open={groupModal} addGroup={addGroup} toggle={showGroupModal} />
     </OtherLayout>
   );
 }
