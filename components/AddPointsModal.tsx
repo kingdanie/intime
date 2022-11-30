@@ -78,8 +78,8 @@ export default function AddPointsModal({open, toggle }) {
                     </button>
 
                     <div>
-                        {bankOptions ? <div className='min-w-full md:w-80 rounded-xl shadow-lg border'>
-                            <button  className=" flex items-center w-full h-12  ">
+                        {bankOptions ? <div className='min-w-full md:w-80 rounded-xl shadow-lg border p-1.5'>
+                            <button  className=" flex items-center w-full h-12  hover:bg-yellow-200 rounded">
                         <div className="flex items-center pl-3">
                         <BuildingLibraryIcon
                             className="h-5 w-5 text-gray-400"
@@ -88,7 +88,7 @@ export default function AddPointsModal({open, toggle }) {
                         </div>
                      <p className='pl-2'><small>Bank tranfer</small></p>
                     </button>
-                    <button  className=" flex items-center w-full h-12 min-w-full ">
+                    <button  className=" flex items-center w-full h-12 min-w-full hover:bg-yellow-200 rounded">
                         <div className="flex items-center pl-3">
                         <CreditCardIcon
                             className="h-5 w-5 text-gray-400"
