@@ -74,10 +74,10 @@ export default function Settings() {
             <div className="col-span-3 flex flex-col space-y-1">
               <h3 className="font-bold text-lg ">{username}</h3>
               <p className="flex items-center space-x-2">
-                <EnvelopeIcon className="h-5 " /> <span>{userInfo[0]?.email}</span>
+                <EnvelopeIcon className="h-5 " /> <span>{userInfo.email}</span>
               </p>
               <p className="flex items-center space-x-2">
-                <DevicePhoneMobileIcon className="h-5 " /> <span>{userInfo[0]?.phone}</span>
+                <DevicePhoneMobileIcon className="h-5 " /> <span>{userInfo.phone}</span>
               </p>
             </div>
           </div>
