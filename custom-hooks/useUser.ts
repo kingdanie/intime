@@ -1,3 +1,4 @@
+import { UserInfo } from './../types/UserInfo';
 import { harperGetUserInfo } from './../utils/harperdb/getUserInfo';
 import { harperGetUsername } from '../utils/harperdb/getUsername';
 import { useState, useEffect } from "react"
@@ -5,7 +6,7 @@ import { useState, useEffect } from "react"
 
 export const useUser = () => {
   const [username, setUsername] = useState("")
-  const [userInfo, setUserInfo] = useState([])
+  const [userInfo, setUserInfo] = useState<UserInfo>({} as UserInfo)
 
   useEffect(() => {
     // User is logged in
