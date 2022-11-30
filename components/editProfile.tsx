@@ -17,7 +17,7 @@ export default function EditProfile() {
         <h3 className="font-extrabold mb-1">{username}</h3>
         <div className="flex items-center">
           <EnvelopeIcon className="h-5 mr-2" />
-          <small>{userInfo[0]?.email}</small>
+          <small>{userInfo.email}</small>
         </div>
       </div>
       <div>
