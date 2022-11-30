@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { BanknotesIcon, BuildingLibraryIcon, CheckBadgeIcon, CheckIcon, CreditCardIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
-export default function AddPointsModal({open, toggle }) {
+export default function AddPointsModal({open, toggle } : {open: boolean, toggle: () => void}) {
 
     const [bankOptions, setBankOptions] = useState(false)
 
