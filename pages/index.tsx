@@ -22,7 +22,7 @@ export default function Home() {
     color: "red",
   };
 
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const showModal = () => setOpen(true)
   const togglePointModal = ()=>{
