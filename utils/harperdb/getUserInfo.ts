@@ -8,6 +8,7 @@ export const harperGetUserInfo = async (username: string) => {
   }
 
   const { result } = await harperFetch(data)
-  return result
+  const userInfoObj  = result[0]
+  return userInfoObj
 
 }
