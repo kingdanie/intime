@@ -22,6 +22,8 @@ module.exports = {
       hover: 'rbg(var(--color-hover) / <alpha-value>)',
       background: 'rbg(var(--color-background) / <alpha-value>)',
       filler: '#632887',
+      navbrdrcolor: '#efefef',
+      bdrcolor: '#d9d9d9',
       text2: 'rgb(var(--color-text-2) / <alpha-value>)',
       mainBg: 'rgb(var(--color-main-bg) / <alpha-value>)',
       }
