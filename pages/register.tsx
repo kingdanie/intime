@@ -91,6 +91,18 @@ export default function Register() {
     );
   };
 
+
+  // disable submit when inputs are empty
+  const validate = () => {
+    return (
+      username.trim().length == 0 || 
+      password.trim().length == 0|| 
+      email.trim().length == 0 || 
+      confirmPassword.trim().length == 0
+    )
+    
+  };
+
   return (
     <div className="h-screen w-full flex flex-col md:flex-row items-center justify-center">
       <div className="h-full w-1/2 py-5 px-10 flex justify-center overflow-y-auto register-bg">
@@ -251,7 +263,10 @@ export default function Register() {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="text-sm bg-accent flex items-center space-x-3 shadow-md  text-black disabled:bg-slate-300 rounded-xl py-5 px-5"
+                disabled={validate()}
+                className="text-sm bg-accent flex items-center 
+                  space-x-3 shadow-md  text-black 
+                  disabled:bg-opacity-50 rounded-xl py-5 px-5"
               >
                 <span className="text-black font-semibold">
                   Sign up
