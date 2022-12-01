@@ -13,18 +13,16 @@ import { postFormData } from "../utils/postFormData";
 import { Message, Recipient } from "../types/Message";
 
 export default function Messages() {
+
   const { username, userInfo } = useContext(UserContext);
 
-  // const contactList: string[] = []
   const [senderId, setSenderId] = useState("");
   const [contact, setContact] = useState("");
   const [msg, setMsg] = useState("");
   const [contactList, setContactList] = useState(
     [] as Recipient[]
   );
-  // const addContact = () => {
-  //   setContactList([ ...contactList, contact])
-  // }
+
 
   const addContact = () => {
     setContactList([
@@ -42,7 +40,7 @@ export default function Messages() {
 
     // let setDay = new Date().getTime()
     let message: Message = {
-      reciever_number: contactList,
+      recipient: contactList,
       message: msg,
       username: username,
       sent_date: `${new Date().getTime()}`,
@@ -76,6 +74,13 @@ export default function Messages() {
     } else {
       alert(result.error);
     }
+  };
+
+  const validateForm = () => {
+    return (
+      contactList.length == 0 ||
+      msg.trim().length == 0
+    );
   };
   return (
     <OtherLayout>
@@ -219,7 +224,13 @@ export default function Messages() {
               ></textarea>
             </div>
             <div>
-              <button className="flex border items-center bg-accent p-3 space-x-5 rounded-lg w-full justify-center">
+              <button
+                className="flex border items-center bg-accent 
+                  p-3 space-x-5 rounded-lg w-full justify-center
+                  disabled:bg-opacity-50 disabled:text-opacity-25
+                "
+                disabled={validateForm()}
+              >
                 <span>Send</span>{" "}
                 <PaperAirplaneIcon className="h-5" />
               </button>
