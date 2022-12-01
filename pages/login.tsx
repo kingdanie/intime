@@ -78,13 +78,20 @@ export default function Register() {
           Don&apos;t have an account?
         </h3>
         <Link href="/register">
-          <button className="ring-white ring-2 shadow-md flex items-center space-x-3 focus:border-white focus:ring-white  py-3 px-5 rounded-xl text-sm text-white">
+          <button 
+            className="ring-white ring-2 shadow-md flex items-center 
+              space-x-3 focus:border-white focus:ring-white  
+              py-3 px-5 rounded-xl text-sm text-white
+          ">
             <ArrowSmallLeftIcon className="w-4" />
             <small>Sign up</small>
           </button>
         </Link>
       </div>
-      <div className="h-full w-1/2 py-5 px-10 flex justify-center overflow-y-auto items-center">
+      <div 
+        className="h-full w-1/2 py-5 px-10 flex justify-center
+          overflow-y-auto items-center
+      ">
         <div className="flex flex-col w-4/5 max-w-lg">
           <h1 className="py-5 text-2xl font-bold">Login</h1>
           <form
@@ -122,7 +129,10 @@ export default function Register() {
                   </div> */}
 
               <div className="relative mt-1 rounded-md shadow-sm">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <div 
+                  className="pointer-events-none absolute inset-y-0 
+                    left-0 flex items-center pl-3
+                ">
                   <UserIcon
                     className="h-5 w-5 text-gray-400"
                     aria-hidden="true"
@@ -139,11 +149,19 @@ export default function Register() {
                   onChange={(event) =>
                     setUsername(event.target.value)
                   }
-                  className="h-12 border block min-w-full  rounded-xl shadow-lg border-gray-300 pl-10 focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                  className="h-12 border block min-w-full  
+                    rounded-xl shadow-lg border-gray-300 pl-10 
+                    focus:border-primary-500 focus:ring-primary-500 
+                    sm:text-sm
+                  "
                 />
               </div>
               <div className="relative mt-1 rounded-md shadow-sm">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <div 
+                  className="pointer-events-none absolute 
+                    inset-y-0 left-0 flex items-center pl-3
+                  "
+                >
                   <LockClosedIcon
                     className="h-5 w-5 text-gray-400"
                     aria-hidden="true"
@@ -155,7 +173,11 @@ export default function Register() {
                   type="password"
                   placeholder="Password"
                   required
-                  className="h-12 border block min-w-full  rounded-xl shadow-lg border-gray-300 pl-10 focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                  className="h-12 border block min-w-full  
+                    rounded-xl shadow-lg border-gray-300 pl-10 
+                    focus:border-primary-500 focus:ring-primary-500 
+                    sm:text-sm
+                  "
                   value={password}
                   onChange={(event) =>
                     setPassword(event.target.value)
@@ -166,9 +188,12 @@ export default function Register() {
             <div className="flex items-center justify-center">
               <button
                 disabled={!validate()}
-                className="flex text-sm bg-accent space-x-3 shadow-md disabled:bg-slate-500 text-black rounded-xl py-4 px-5"
+                className="flex text-sm bg-accent space-x-3 
+                  shadow-md disabled:bg-opacity-50 disabled:text-opacity-25 text-black 
+                  rounded-xl py-4 px-5
+                "
               >
-                <span className="text-black font-semibold">
+                <span className="text-black  disabled:text-opacity-25 font-semibold">
                   Login
                 </span>
 
