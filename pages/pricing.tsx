@@ -1,11 +1,7 @@
 import { Fragment, useState } from "react";
 import AppHeader from "../components/AppHeader";
-import SearchInput from "../components/SearchInput";
 import OtherLayout from "./layout2";
-import PointCard from "../components/PointCard";
-import Metrics from "../components/metrics";
 import MCalendar from "../components/m-calendar";
-import MsgCard from "../components/MsgCard";
 import EditProfile from "../components/editProfile";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
@@ -13,15 +9,15 @@ import PricingArrows from "./../public/pricing-arrows.svg";
 import Transfer from "./../public/left-right-arrows.svg";
 import Chain from "./../public/chain.svg";
 import TransferModal from "../components/TransferModal";
+
 export default function Pricing() {
+  const [open, setOpen] = useState(false);
 
-  const [open, setOpen] = useState(true)
+  const showModal = () => setOpen(true);
+  const toggleTransferModal = () => {
+    return setOpen(!open);
+  };
 
-  const showModal = () => setOpen(true)
-  const toggleTransferModal = ()=>{
-    return setOpen(!open)
-  }
-  
   return (
     <OtherLayout>
       {/* Your content */}
@@ -37,12 +33,12 @@ export default function Pricing() {
             <AppHeader name="Pricing" />
           </div>
         </section>
-        <section className="flex flex-col items-center border border-dotted border-gray-500 rounded-lg my-5 p-5">
-          <div className="flex items-center">
+        <section className="flex flex-col items-center border-4 border-dotted border-brdrcolor rounded-lg my-5 p-5">
+          <div className="flex items-center space-x-5">
             <MagnifyingGlassIcon className="h-5" />{" "}
-            <h3>Point conversion and meessage costs</h3>
+            <h3>Points conversion and meessage costs</h3>
           </div>
-          <div className="mt-10 mb-2 h-0 w-4/5 border border-solid border-gray-400"></div>
+          <div className="mt-10 mb-2 h-0 w-4/5 border border-solid border-brdrcolor"></div>
           <div className="w-full">
             {[
               { name: " 1 Naira", points: "1" },
@@ -53,12 +49,17 @@ export default function Pricing() {
             ].map((plan) => (
               <div
                 key={plan.name}
-                className="grid grid-cols-12 my-5 gap-4 border border-solid border-gray-300 rounded-lg px-3 py-1 w-full"
+                className="grid grid-cols-12 my-5 gap-4 border 
+                  border-solid border-gray-100 rounded-lg 
+                  px-3 py-1 w-full"
               >
                 <div className="col-span-5">
                   <span>{plan.name}</span>
                 </div>
-                <div className="col-span-2 self-center justify-self-center text-center">
+                <div
+                  className="col-span-2 self-center 
+                    justify-self-center text-center"
+                >
                   {" "}
                   <Image
                     width={60}
@@ -69,7 +70,8 @@ export default function Pricing() {
                 </div>
                 <div className="col-span-5 text-end">
                   <span>
-                    {plan.points} Point{Number(plan.points) > 1 ? "s" : null}
+                    {plan.points} Point
+                    {Number(plan.points) > 1 ? "s" : null}
                   </span>
                 </div>
               </div>
@@ -77,12 +79,24 @@ export default function Pricing() {
           </div>
         </section>
         <section className="grid md:grid-cols-10 md:p-10 gap-10 md:space-y-0">
-          <div className="md:col-span-4 flex flex-col border border-solid border-gray-400 rounded-xl p-5 space-y-10">
-            <div className="flex items-center justify-center rounded-full p-2 bg-filler w-10 h-10 text-white">
+          <div
+            className="md:col-span-4 flex flex-col 
+            border border-solid border-bdrcolor 
+            rounded-xl p-5 space-y-10"
+          >
+            <div
+              className="flex items-center justify-center 
+                rounded-full p-2 bg-filler w-10 h-10 text-white"
+            >
               +
             </div>
-            <h3>Add Points</h3>
-            <p>Get points Directly from your bank account . Fast and secure.</p>
+            <h3 className="font-semibold text-gray-700">
+              Add Points
+            </h3>
+            <p>
+              Get points Directly from your bank account .
+              Fast and secure.
+            </p>
             <div>
               <button
                 className="text-sm text-gray-600 font-semibold 
@@ -91,7 +105,12 @@ export default function Pricing() {
                     align-end justify-self-end"
               >
                 <small>Add</small>
-                <Image src={Chain} width={20} height={20} alt="chain"></Image>
+                <Image
+                  src={Chain}
+                  width={20}
+                  height={20}
+                  alt="chain"
+                ></Image>
               </button>
             </div>
           </div>
@@ -99,8 +118,14 @@ export default function Pricing() {
           {/* empty div */}
           <div className="hidden md:block md:col-span-2 "></div>
 
-          <div className="md:col-span-4  border border-solid border-gray-400 rounded-xl p-5 space-y-10">
-            <div className="flex items-center justify-center rounded-full p-2 bg-accent w-10 h-10">
+          <div
+            className="md:col-span-4  border border-solid 
+              border-brdrcolor rounded-xl p-5 space-y-10"
+          >
+            <div
+              className="flex items-center justify-center 
+              rounded-full p-2 bg-accent w-10 h-10"
+            >
               <Image
                 src={Transfer}
                 width={20}
@@ -108,16 +133,29 @@ export default function Pricing() {
                 alt="transfer"
               ></Image>
             </div>
-            <h3>Transfer points</h3>
-            <p>Get points Directly from your bank account . Fast and secure.</p>
+            <h3 className="font-semibold text-gray-700">
+              Transfer points
+            </h3>
+
+            <p>
+              Get points Directly from your bank account .
+              Fast and secure.
+            </p>
+
             <button
-            onClick={() => showModal()}
+              onClick={() => showModal()}
               className="text-sm text-gray-600 font-semibold 
                     relative flex px-6 py-5 space-x-3
                     rounded-xl bg-accent"
             >
               <small>Transfer</small>
-              <Image src={Chain} width={20} height={20} alt="chain"></Image>
+
+              <Image
+                src={Chain}
+                width={20}
+                height={20}
+                alt="chain"
+              ></Image>
             </button>
           </div>
         </section>
@@ -134,7 +172,10 @@ export default function Pricing() {
           <MCalendar />
         </div>
       </aside>
-      <TransferModal open={open} toggle={toggleTransferModal}/>
+      <TransferModal
+        open={open}
+        toggle={toggleTransferModal}
+      />
     </OtherLayout>
   );
 }
