@@ -27,7 +27,25 @@ export default function Home() {
   const togglePointModal = () => {
     return setOpen(!open);
   };
-  const passages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 11, 12];
+
+  const messages = [
+    {
+    status: "sent",
+    message: "What is happening here",
+    recipient: {name: "charles", phone: "96545"} 
+  },
+  {
+    status: "scheduled",
+    message: "To be sent",
+    recipient: {name: "joy", phone: "40645",}   
+  },
+  {
+    status: "failed",
+    message: "Not sent",
+    recipient: {name: "lizzy", phone: "0000"}  
+},
+
+]
   return (
     <OtherLayout>
       <div
@@ -57,8 +75,8 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-8 max-w-5xl pb-12">
             <div className="">
-              {passages.map((person) => (
-                <MsgCard message="" key={person} />
+              {messages.map((msg, i) => (
+                <MsgCard message={msg} key={i}/>
               ))}
             </div>
           </div>
