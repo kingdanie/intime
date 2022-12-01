@@ -1,9 +1,72 @@
+import { useState } from "react";
 import AppHeader from "../components/AppHeader";
 import MsgCard from "../components/MsgCard";
+import TransactionCard from "../components/Transactions";
 import RootLayout from "./layout";
 import OtherLayout from "./layout2";
 
 export default function History() {
+
+  const [data, setData] = useState<number>(1)
+  let message = 1;
+  let trans = 2;
+  const messages = [
+    {
+    status: "sent",
+    message: "What is happening here",
+    recipient: {name: "charles", phone: "96545"} 
+  },
+  {
+    status: "scheduled",
+    message: "To be sent",
+    recipient: {name: "joy", phone: "40645",}   
+  },
+  {
+    status: "failed",
+    message: "Not sent",
+    recipient: {name: "lizzy", phone: "0000"}  
+},
+  {
+    status: "draft",
+    message: "To be continued",
+    recipient: {name: "vik", phone: "8578905"}
+  }
+]
+const transactions = [
+  {
+  status: "points top up",
+  message: "Your top up was successful",
+  subject: "Credit Notification" 
+},
+{
+  status: "points top up",
+  message: "Your account was debited 4 points for this message",
+  subject: "Debit Notification"   
+},
+{
+  status: "points top up",
+  message: "Your referals have been confirmed",
+  subject: "Referal Bonus"   
+},
+{
+  status: "points top up",
+  message: "Your account was debited 20 points for 2 message",
+  subject: "Debit Notification"   
+},
+] 
+const changeView = (view: number) => {
+      switch (view){
+        case 1: 
+          setData(message);
+          break;
+        case 2:
+          setData(trans);
+          break;
+        default:
+          setData(message)
+
+      }
+  }
   return (
     <RootLayout>
       <div className="w-full flex flex-col py-16 px-10 md:px-12">
@@ -11,17 +74,21 @@ export default function History() {
 
         <section className="mt-10">
           <div className="flex items-center justify-center gap-8">
-            <button className="bg-yellow-500 py-3 shadow rounded-lg w-32">
+            <button onClick={() => changeView(1)} 
+              className={`${data === 1 ? "bg-yellow-500 text-white" : "bg-white"} py-3 shadow rounded-lg w-32`}>
               <span className="text-xs">Message log</span>
             </button>
-            <button className="bg-white py-3 border shadow rounded-lg w-32">
+            <button onClick={() => changeView(2)} 
+              className={`${data === 2 ? "bg-yellow-500 text-white" : "bg-white"}  py-3 border shadow rounded-lg w-32`}>
               <span className="text-xs">Transaction</span>
             </button>
           </div>
           <div className="mt-16">
-            {[1, 2, 3, 4, 5].map((msg) => (
-              <MsgCard key={msg} message={""} />
-            ))}
+            {data}
+            {data === 1 ? messages.map((msg, i) => (
+              <MsgCard key={i} message={msg} />
+            ))
+            : transactions.map((trans, i) => (<TransactionCard key={i} transactions={trans} />))}
           </div>
         </section>
       </div>
