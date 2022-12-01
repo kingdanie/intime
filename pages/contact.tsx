@@ -92,10 +92,10 @@ export default function Contact() {
           <div>
             <div
               className="
-                    grid grid-col-2 
-                    md:grid-cols-3 xl:grid-cols-4 
-                    gap-3
-                  "
+                grid grid-col-2 
+                md:grid-cols-3 xl:grid-cols-4 
+                gap-3
+              "
             >
               {[
                 { name: "Social", color: "red" },
@@ -105,7 +105,7 @@ export default function Contact() {
                 <div
                   key={group.name}
                   className="flex flex-col justify-between  
-                    items-center gap-5 border-2 rounded-xl p-5
+                    items-center gap-5 border border-brdrcolor rounded-xl p-5
                   "
                 >
                   <div className="w-full">
@@ -148,7 +148,7 @@ export default function Contact() {
                       onClick={() => null}
                       className="flex h-7 w-2 justify-center 
                           items-center rounded-xl border bg-accent 
-                          border-gray-200 p-4 font-sans text-sm 
+                          border-brdrcolor p-4 font-sans text-sm 
                           font-medium text-gray-400
                         "
                     >
@@ -181,8 +181,8 @@ export default function Contact() {
                     <button
                       onClick={() => showGroupModal()}
                       className="
-                          border border-solid rounded-lg 
-                          px-3 py-1.5 hover:bg-accent
+                          border-2 border-gray-400 rounded-xl 
+                          px-4 py-3 hover:bg-accent text-gray-400 text-xs font-semibold
                         "
                     >
                       <small>Create group</small>
@@ -204,7 +204,7 @@ export default function Contact() {
               <button
                 onClick={() => showModal()}
                 className="text-sm text-gray-600 font-semibold 
-                    relative flex py-3 px-5 
+                    relative flex py-4 px-5 text-xs 
                     rounded-xl bg-accent shadow-md"
               >
                 <small>Add new contact</small>

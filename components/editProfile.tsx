@@ -10,7 +10,12 @@ export default function EditProfile() {
   const { username, userInfo } = useContext(UserContext);
 
   return (
-    <div className="w-full text-gray-600 flex flex-col items-center justify-between space-y-5 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-lg">
+    <div
+      className="w-full text-gray-600 flex flex-col 
+        items-center justify-between space-y-5 rounded-lg 
+        border border-brdrcolor bg-white px-6 py-5 shadow-lg
+      "
+    >
       <Image
         src={uimage}
         height="50"
@@ -26,7 +31,11 @@ export default function EditProfile() {
       </div>
       <div>
         <Link href={"settings"}>
-          <button className="flex items-center text-xs text-gray-600 font-semibold space-x-2 py-3 px-4 bg-accent rounded-xl">
+          <button
+            className="flex items-center text-xs text-gray-600 font-semibold 
+              space-x-2 py-3 px-4 bg-accent rounded-xl
+            "
+          >
             Edit
             <div className="ml-3">
               <Image

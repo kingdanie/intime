@@ -190,7 +190,7 @@ export default function SideBar2({
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden lg:flex lg:flex-shrink-0 rounded-xl shadow-lg border">
+      <div className="hidden lg:flex lg:flex-shrink-0 rounded-xl shadow-lg  border-navbrdrcolor border-2">
         <div className="flex w-20 flex-col">
           <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
             <div className="flex-1">
@@ -215,7 +215,7 @@ export default function SideBar2({
                       item.href == route.pathname
                         ? "bg-filler text-white rounded-xl"
                         : "text-gray-500 hover:text-white hover:bg-purple-800 hover:bg-opacity-75",
-                      "group flex items-center justify-center p-2 text-sm font-medium rounded-md"
+                      "group flex items-center justify-center py-2 px-3 text-sm font-medium rounded-lg"
                     )}
                   >
                     <item.icon
@@ -232,7 +232,9 @@ export default function SideBar2({
             <div className="flex flex-shrink-0 pb-5 justify-center">
               <button
                 onClick={handleLogout}
-                className="flex items-center text-sm font-medium rounded-md p-2 text-gray-500 hover:text-white hover:bg-purple-800 hover:bg-opacity-75"
+                className="
+                  flex items-center text-sm font-medium rounded-md py-2 px-3 
+                  text-gray-500 hover:text-white hover:bg-purple-800 hover:bg-opacity-75"
               >
                 <ArrowLeftOnRectangleIcon
                   className="h-6 w-6"
