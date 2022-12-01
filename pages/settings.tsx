@@ -17,21 +17,19 @@ export default function Settings() {
   const [chevOn, setChevOn] = useState(false);
   const { username, userInfo } = useContext(UserContext);
 
-  interface UserInfo {
-    email: string;
-    phone: number;
-  }
   return (
     <RootLayout>
-      <div className="w-full flex flex-col">
-        <section className="bgs bg-filler w-full p-10 h-24vh"></section>
-        <section className=" px-5 md:px-12 space-y-10 -mt-40">
-          <AppHeader name="Settings" />
+      <div className="relative w-full flex flex-col">
+        <section className="relative mb-32">
+          <div className="absolute top-0 w-full h-32vh bgs bg-filler p-10 -z-10"></div>
+          <div className="md:px-16 py-16 space-y-14 px-5">
+          <AppHeader name="Settings" color="white" />
           <div
             className="
             lg:w-5/12 p-7 grid grid-cols-5 gap-x-6 space-x-2 
             rounded-lg shadow-md 
             justify-center items-center bg-white
+            border boer-brdrcolor
             "
           >
             <div className="relative flex col-span-2">
@@ -46,6 +44,7 @@ export default function Settings() {
                 className="
                     bg-accent rounded-lg h-10 w-10  p-3 absolute 
                     bottom-1 right-2 flex items-center text-black 
+                    cursor-pointer hover:ring-2 hover:ring-white hover:bg-yellow-300
                   "
               >
                 <img src="/edit.svg" alt="edit button" />
@@ -77,17 +76,22 @@ export default function Settings() {
                 <span>{userInfo.email}</span>
               </p>
               <p className="flex items-center space-x-2">
-                <DevicePhoneMobileIcon className="h-5 " />{" "}
+                <DevicePhoneMobileIcon className="h-5" />{" "}
                 <span>{userInfo.phone}</span>
               </p>
             </div>
           </div>
-          <div className="mt-10 py-6 space-y-10">
+          </div>
+        </section>
+        <section className=" px-5 md:px-12 space-y-10 -mt-40">
+  
+          <div className="mt-10 py-6 md:px-5 space-y-10">
             <div
               className="
                     mx-auto rounded-lg px-10  
-                    py-6 shadow-md border border-solid  
-                    hover:bg-gray-100 focus:outline-none 
+                    py-6 shadow-md border border-brdrcolor  
+                    hover:ring-2 hover:ring-filler hover:transition hover:delay-50 
+                    hover:duration-500 focus:outline-none 
                     focus-visible:ring focus-visible:ring-gray-500 
                     focus-visible:ring-opacity-75
                   "
@@ -161,7 +165,13 @@ export default function Settings() {
                 )}
               </Disclosure>
             </div>
-            <div className="mx-auto rounded-lg px-10  py-6 shadow-md border border-solid  hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75 ">
+            <div 
+              className="mx-auto rounded-lg px-10  py-6 shadow-md 
+                border 
+                hover:ring-2 hover:ring-filler hover:transition hover:delay-50 
+                hover:duration-500 focus:outline-none 
+                focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75 
+              ">
               <Disclosure>
                 {({ open }) => (
                   <>
