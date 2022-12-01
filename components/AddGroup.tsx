@@ -55,7 +55,10 @@ export default function AddGroupModal({
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div 
+            className="flex min-h-full items-end justify-center 
+              p-4 text-center sm:items-center sm:p-0"
+          >
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -65,7 +68,13 @@ export default function AddGroupModal({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+              <Dialog.Panel 
+                className="relative transform overflow-hidden 
+                  rounded-lg bg-white px-4 pt-5 pb-4 text-left 
+                  shadow-xl transition-all sm:my-8 sm:w-full 
+                  sm:max-w-sm sm:p-6
+                "
+              >
                 <div>
                   <div className="flex items-center justify-between">
                     <Dialog.Title
@@ -90,7 +99,10 @@ export default function AddGroupModal({
                   <div className="text-center">
                     <div className="space-y-4">
                       <div className="relative mt-3 rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <div 
+                          className="pointer-events-none absolute 
+                            inset-y-0 left-0 flex items-center pl-3"
+                        >
                           <UserIcon
                             className="h-5 w-5 text-gray-400"
                             aria-hidden="true"
@@ -100,7 +112,10 @@ export default function AddGroupModal({
                           type="text"
                           name="name"
                           id="name"
-                          className="h-14 block min-w-full md:w-80 rounded-xl shadow-lg border pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="h-14 block min-w-full md:w-80 
+                            rounded-xl shadow-lg border pl-10 
+                            focus:border-yellow-500 focus:ring-yellow-500 
+                            sm:text-sm"
                           placeholder="Group Name"
                           value={groupName}
                           onChange={(e) =>
@@ -109,7 +124,11 @@ export default function AddGroupModal({
                         />
                       </div>
                       <div className="relative mt-3 rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <div 
+                          className="pointer-events-none absolute 
+                              inset-y-0 left-0 flex items-center pl-3
+                          "
+                        >
                           <PaintBrushIcon
                             className="h-5 w-5 text-gray-400"
                             aria-hidden="true"
@@ -119,7 +138,9 @@ export default function AddGroupModal({
                           type="color"
                           name="color"
                           id="color"
-                          className="h-14 block min-w-full md:w-80 rounded-xl shadow-lg border pl-10 pr-3 sm:text-sm"
+                          className="h-14 block min-w-full md:w-80 rounded-xl 
+                            shadow-lg border pl-10 pr-3 sm:text-sm
+                          "
                           placeholder="Choose color"
                           value={groupColor}
                           onChange={(e) =>
@@ -133,7 +154,13 @@ export default function AddGroupModal({
                 <div className="mt-4 sm:mt-6">
                   <button
                     type="button"
-                    className="inline-flex w-full justify-center rounded-xl border border-transparent bg-accent disabled:bg-slate-300 disabled:ring-2 disabled:ring-slate-400 px-4 py-4 text-base font-medium text-gray-500 shadow-sm hover:bg-accent focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:text-sm"
+                    className="inline-flex w-full justify-center 
+                      rounded-xl border border-transparent bg-accent 
+                      disabled:bg-opacity-50 disabled:text-opacity-50 
+                      px-4 py-4 text-base font-medium text-gray-500 shadow-sm 
+                      focus:outline-none focus:ring-2 
+                      focus:ring-yellow-500 focus:ring-offset-2 sm:text-sm
+                    "
                     onClick={() => handleGroupSubmit()}
                     disabled={validateForm()}
                   >

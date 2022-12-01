@@ -118,8 +118,8 @@ export default function AddContactModal({
                           name="name"
                           id="name"
                           className="
-                            h-14 block min-w-full md:w-80 rounded-xl shadow-lg border 
-                            pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm
+                            h-14 block min-w-full md:w-80 rounded-xl shadow-lg border
+                            pl-10 focus:border-yellow-400 focus:ring-yellow-400 sm:text-sm
                           "
                           placeholder="Name"
                           value={contactName}
@@ -144,8 +144,8 @@ export default function AddContactModal({
                           name="mobile"
                           id="mobile"
                           className="h-14 block min-w-full md:w-80 rounded-xl 
-                            shadow-lg border pl-10 focus:border-indigo-500 
-                            focus:ring-indigo-500 sm:text-sm
+                            shadow-lg border pl-10 focus:border-yellow-400 
+                            focus:ring-yellow-400 sm:text-sm
                           "
                           placeholder="Phone number"
                           value={contactNumber}
@@ -162,8 +162,8 @@ export default function AddContactModal({
                     type="button"
                     className="inline-flex w-full justify-center 
                       rounded-xl border border-transparent bg-accent
-                    disabled:bg-slate-300 disabled:ring-2 
-                    disabled:ring-slate-400 px-4 py-4 text-base 
+                    disabled:bg-opacity-50 disabled:text-opacity-50 
+                     px-4 py-4 text-base 
                       font-medium text-gray-500 shadow-sm hover:bg-accent 
                       focus:outline-none focus:ring-2 focus:ring-yellow-500 
                       focus:ring-offset-2 sm:text-sm
