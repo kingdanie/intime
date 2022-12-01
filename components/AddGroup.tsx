@@ -137,7 +137,7 @@ export default function AddGroupModal({
                     onClick={() => handleGroupSubmit()}
                     disabled={validateForm()}
                   >
-                    Add contact
+                    Add Group
                   </button>
                 </div>
               </Dialog.Panel>
