@@ -31,7 +31,7 @@ export default function SearchInput() {
           type="search"
           name="search"
           id="search"
-          className="h-12 border block min-w-full md:w-80 rounded-xl shadow-lg border-gray-300 pl-10 focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+          className="h-12 border block min-w-full md:w-80 rounded-xl shadow-lg border-brdrcolor pl-10 focus:border-yellow-500 focus:ring-primary-500 sm:text-sm"
           placeholder="Search"
         />
       </div>
