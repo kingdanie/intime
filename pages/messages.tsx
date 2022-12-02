@@ -25,6 +25,7 @@ export default function Messages() {
 
 
   const addContact = () => {
+    if (contact.length == 0 || senderId.length == 0) return
     setContactList([
       ...contactList,
       { name: contact, phone: senderId },
