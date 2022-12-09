@@ -1,4 +1,5 @@
-export default function TransactionCard({ transactions }) {
+import { Transaction } from "../types/Transaction";
+export default function TransactionCard({ transactions }: {transactions: Transaction}) {
     return (
       <>
         <div 
