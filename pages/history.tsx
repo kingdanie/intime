@@ -4,12 +4,13 @@ import MsgCard from "../components/MsgCard";
 import TransactionCard from "../components/Transactions";
 import RootLayout from "./layout";
 import OtherLayout from "./layout2";
+import { Message } from "../types/Message";
 
 export default function History() {
   const [data, setData] = useState<number>(1);
   let message = 1;
   let trans = 2;
-  const messages = [
+  const messages: Message[] = [
     {
       status: "sent",
       message: "What is happening here",
