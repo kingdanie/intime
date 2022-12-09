@@ -19,7 +19,7 @@ export default function Messages() {
   const [senderId, setSenderId] = useState("");
   const [contact, setContact] = useState("");
   const [msg, setMsg] = useState("");
-  const [contactList, setContactList] = useState<any[]>([]);
+  const [contactList, setContactList] = useState<Recipient[]>([]);
 
 
   const addContact = () => {
