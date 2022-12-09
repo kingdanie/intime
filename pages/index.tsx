@@ -11,6 +11,7 @@ import EditProfile from "../components/editProfile";
 import Link from "next/link";
 import AddPointsModal from "../components/AddPointsModal";
 import { UserContext } from "../contexts/UserContexts";
+import { Message, Status } from "../types/Message";
 
 export default function Home() {
   const { username } = useContext(UserContext);
@@ -28,24 +29,29 @@ export default function Home() {
     return setOpen(!open);
   };
 
-  const messages = [
+  const messages: Message[] = [
     {
-    status: "sent",
-    message: "What is happening here",
-    recipient: {name: "charles", phone: "96545"} 
-  },
-  {
-    status: "scheduled",
-    message: "To be sent",
-    recipient: {name: "joy", phone: "40645",}   
-  },
-  {
-    status: "failed",
-    message: "Not sent",
-    recipient: {name: "lizzy", phone: "0000"}  
-},
-
-]
+      username: "adam",
+      message: "What is happening here",
+      recipient: { name: "charles", phone: "96545" },
+      status: Status.sent,
+      sent_date: "May 5",
+    },
+    {
+      username: "eve",
+      message: "To be sent",
+      recipient: { name: "joy", phone: "40645" },
+      status: Status.scheduled,
+      sent_date: "May 5",
+    },
+    {
+      username: "cain",
+      message: "Not sent",
+      recipient: { name: "lizzy", phone: "0000" },
+      status: Status.failed,
+      sent_date: "May 5",
+    },
+  ];
   return (
     <OtherLayout>
       <div
@@ -76,7 +82,7 @@ export default function Home() {
           <div className="mx-auto mt-8 max-w-5xl pb-12">
             <div className="">
               {messages.map((msg, i) => (
-                <MsgCard message={msg} key={i}/>
+                <MsgCard message={msg} key={i} />
               ))}
             </div>
           </div>
@@ -92,10 +98,7 @@ export default function Home() {
           <MCalendar />
         </div>
       </aside>
-      <AddPointsModal
-        open={open}
-        toggle={togglePointModal}
-      />
+      <AddPointsModal open={open} toggle={togglePointModal} />
     </OtherLayout>
   );
 }
