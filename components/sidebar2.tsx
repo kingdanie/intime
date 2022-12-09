@@ -23,7 +23,7 @@ export default function SideBar2({
   setSidebarOpen,
 }: {
   sidebarOpen: boolean;
-  setSidebarOpen: React.Dispatch<SetStateAction<boolean>>;
+  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const { username, setUsername } = useContext(UserContext);
   const router = useRouter();
