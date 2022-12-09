@@ -4,7 +4,7 @@ import MsgCard from "../components/MsgCard";
 import TransactionCard from "../components/Transactions";
 import RootLayout from "./layout";
 import OtherLayout from "./layout2";
-import { Message } from "../types/Message";
+import { Message, Status } from "../types/Message";
 
 export default function History() {
   const [data, setData] = useState<number>(1);
@@ -12,28 +12,28 @@ export default function History() {
   let trans = 2;
   const messages: Message[] = [
     {
-      status: sent,
+      status: Status.sent,
       message: "What is happening here",
       recipient: { name: "charles", phone: "96545" },
       username: "adam",
       sent_date: "May 5",
     },
     {
-      status: scheduled,
+      status: Status.scheduled,
       message: "To be sent",
       recipient: { name: "joy", phone: "40645" },
       username: "seth",
       sent_date: "May 7",
     },
     {
-      status: failed,
+      status: Status.failed,
       message: "Not sent",
       recipient: { name: "lizzy", phone: "0000" },
       username: "snake",
       sent_date: "May 25",
     },
     {
-      status: draft,
+      status: Status.draft,
       message: "To be continued",
       recipient: { name: "vik", phone: "8578905" },
       username: "adam",
