@@ -1,7 +1,7 @@
 export interface Message {
     status?: Status,
     message: string,
-    recipient: Recipient[],
+    recipient: Recipient,
     username: string,
     delivery_date?: string,
     sent_date: string
