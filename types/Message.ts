@@ -13,4 +13,4 @@ export interface Recipient {
     email?: string
 }
 
-export enum Status {sent = "SENT", delivered = "DELIVERED", failed = "NOT SENT", scheduled = "SCHEDULED"}
+export enum Status {sent = "SENT", draft = "DRAFT", delivered = "DELIVERED", failed = "NOT SENT", scheduled = "SCHEDULED"}
