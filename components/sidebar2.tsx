@@ -23,7 +23,7 @@ export default function SideBar2({
   setSidebarOpen,
 }: {
   sidebarOpen: boolean;
-  setSidebarOpen: (boolean: boolean) => boolean;
+  setSidebarOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const { username, setUsername } = useContext(UserContext);
   const router = useRouter();
