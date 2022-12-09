@@ -48,7 +48,13 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
+export default function Sidebar({
+  sidebarOpen,
+  setSidebarOpen,
+}: {
+  sidebarOpen: boolean;
+  setSidebarOpen: (boolean: boolean) => boolean;
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // const [sidebarOpen, setSidebarOpen] = useState(false)
   return (
