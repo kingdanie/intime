@@ -2,7 +2,7 @@
 ## Intime Messaging Application (Demo)
 
 This is a bulk sms messaging application concept built with Nextjs and harperdb as database provider. 
-The application also features a contact manager, which also users ability to manage their contacts and organize them in groups.
+The application features a contact manager, which gives users ability to manage their contacts and organize them in groups.
 
 
 ## Technical Features
