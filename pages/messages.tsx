@@ -39,7 +39,7 @@ export default function Messages() {
 
     // let setDay = new Date().getTime()
     let message: Message = {
-      recipient: contactList,
+      recipient: any[],
       message: msg,
       username: username,
       sent_date: `${new Date().getTime()}`,
