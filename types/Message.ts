@@ -9,7 +9,7 @@ export interface Message {
 
 export interface Recipient {
     name?: string,
-    phone: string,
+    phone?: string,
     email?: string
 }
 
