@@ -16,7 +16,7 @@ export default function MsgCard({ message }: {message: Message}) {
           <div className="min-w-0 flex-1">
             <a href="#" className="focus:outline-none">
               <span className="absolute inset-0" aria-hidden="true" />
-              <p className="text-sm font-medium text-gray-900">{message.recipient?.name}</p>
+              {/* <p className="text-sm font-medium text-gray-900">{message.recipient?.name}</p> */}
               <p className="truncate text-sm text-gray-500">{message.message}</p>
               <div className="bg-gray-600 rounded-md text-white text-xs text-center ">
                 <span></span>
