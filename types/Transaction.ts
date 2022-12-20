@@ -1,3 +1,4 @@
+import { Status } from "./Message"
 export interface Transaction {
     status?: Status,
     subject: string,
