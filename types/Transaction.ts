@@ -1,6 +1,5 @@
-import { Status } from "./Message"
 export interface Transaction {
-    status?: Status,
+    status?: string,
     subject: string,
     message: string,
     username: string,

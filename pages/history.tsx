@@ -5,6 +5,7 @@ import TransactionCard from "../components/Transactions";
 import RootLayout from "./layout";
 import OtherLayout from "./layout2";
 import { Message, Status } from "../types/Message";
+import { Transaction } from "../types/Transaction";
 
 export default function History() {
   const [data, setData] = useState<number>(1);
@@ -40,7 +41,7 @@ export default function History() {
       sent_date: "May 5",
     },
   ];
-  const transactions = [
+  const transactions: Transaction[] = [
     {
       status: "points top up",
       message: "Your top up was successful",
