@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { BriefcaseIcon, CheckIcon, CreditCardIcon, MagnifyingGlassIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
-export default function TransferModal({open, toggle } : {open: boolean, toggle: () => boolean}) {
+export default function TransferModal({open, toggle } : {open: boolean, toggle: () => void}) {
 
 
   return (
