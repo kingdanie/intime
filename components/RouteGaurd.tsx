@@ -5,7 +5,7 @@ export { RouteGuard };
 
 const accessToken = localStorage.getItem("access_token");
 function RouteGuard({ children }: {
-    children: React.ReactNode
+    children: any
   }) {
     const router = useRouter();
     const [authorized, setAuthorized] = useState(false);
