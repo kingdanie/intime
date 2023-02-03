@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 export { RouteGuard };
 
-const accessToken = localStorage.getItem("access_token");
 function RouteGuard({ children }: {
     children: any
   }) {
@@ -34,6 +33,7 @@ function RouteGuard({ children }: {
         // redirect to login page if accessing a private page and not logged in 
         const publicPaths = ['/login', '/register'];
         const path = url.split('?')[0];
+        const accessToken = localStorage.getItem("access_token");
         if (!accessToken && !publicPaths.includes(path)) {
             setAuthorized(false);
             router.push({
