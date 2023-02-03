@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 export { RouteGuard };
 
 const accessToken = localStorage.getItem("access_token");
-function RouteGuard({ children }) {
+function RouteGuard({ children }: {
+    children: React.ReactNode
+  }) {
     const router = useRouter();
     const [authorized, setAuthorized] = useState(false);
     
