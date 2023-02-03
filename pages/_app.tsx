@@ -4,6 +4,7 @@ import { UserContext } from "../contexts/UserContexts";
 import { useUser } from "../custom-hooks/useUser";
 import { ContactsContext } from "../contexts/ContactsContext";
 import { useContacts } from "../custom-hooks/useContact";
+import { RouteGuard } from "../components/RouteGaurd";
 
 export default function App({
   Component,
@@ -25,7 +26,10 @@ export default function App({
       <ContactsContext.Provider
         value={{ contacts, setContacts, getAndSetContacts }}
       >
-        <Component {...pageProps} />
+        <RouteGuard>
+          <Component {...pageProps} />
+        </RouteGuard>
+
       </ContactsContext.Provider>
     </UserContext.Provider>
   );
