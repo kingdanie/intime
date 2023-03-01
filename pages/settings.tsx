@@ -68,7 +68,7 @@ export default function Settings() {
                     </div> 
                   */}
             <div className="col-span-3 flex flex-col space-y-1">
-              <h3 className="font-bold text-lg ">
+              <h3 className="font-bold text-lg capitalize">
                 {username}
               </h3>
               <p className="flex items-center space-x-2">

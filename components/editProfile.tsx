@@ -23,7 +23,7 @@ export default function EditProfile() {
         alt="user profile"
       />
       <div className="flex flex-col items-center">
-        <h3 className="font-extrabold mb-1">{username}</h3>
+        <h3 className="capitalize font-extrabold mb-1">{username}</h3>
         <div className="flex items-center">
           <EnvelopeIcon className="h-5 mr-2" />
           <small>{userInfo.email}</small>

@@ -229,7 +229,7 @@ export default function Contact() {
                     <div>
                       <span>
                         {contact.name
-                          ? contact.name
+                          ? <span className="capitalize">{contact.name}</span>
                           : contact.phone}
                       </span>
                     </div>
