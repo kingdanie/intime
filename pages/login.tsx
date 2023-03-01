@@ -65,8 +65,8 @@ export default function Register() {
   };
 
   return (
-    <div className="h-screen w-full flex flex-col md:flex-row items-center justify-center">
-      <div className="w-1/2 h-full bg-filler flex flex-col items-center">
+    <div className="md:h-screen w-full md:flex md:flex-row items-center justify-center">
+      <div className="md:w-1/2 md:h-full bg-filler flex flex-col justify-center  items-center">
         <Image
           src={"/login.png"}
           alt="login image"
@@ -77,7 +77,7 @@ export default function Register() {
         <h3 className="text-white p-5">
           Don&apos;t have an account?
         </h3>
-        <Link href="/register">
+        <Link href="/register" className="mb-10 md:mb-0">
           <button 
             className="ring-white ring-2 shadow-md flex items-center 
               space-x-3 focus:border-white focus:ring-white  
@@ -88,10 +88,12 @@ export default function Register() {
           </button>
         </Link>
       </div>
-      <div 
-        className="h-full w-1/2 py-5 px-10 flex justify-center
+      <div className="
+          md:h-full md:w-1/2 py-5 px-10 
+          flex justify-center
           overflow-y-auto items-center
-      ">
+          "
+      >
         <div className="flex flex-col w-4/5 max-w-lg">
           <h1 className="py-5 text-2xl font-bold">Login</h1>
           <form
