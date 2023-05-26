@@ -1,5 +1,5 @@
 
-## Intime Messaging Application (Demo)
+## Intime Messaging Application (MVP)
 
 This is a bulk sms messaging application concept built with Nextjs and harperdb as database provider. 
 The application features a contact manager, which gives users ability to manage their contacts and organize them in groups.
