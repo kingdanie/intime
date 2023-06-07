@@ -73,6 +73,7 @@ export default function Register() {
           width={450}
           height={450}
           className="mb-10"
+          loading = 'eager'
         ></Image>
         <h3 className="text-white p-5">
           Don&apos;t have an account?
