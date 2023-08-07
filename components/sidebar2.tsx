@@ -31,7 +31,8 @@ export default function SideBar2({
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     setUsername("");
-    router.push("/login");
+   // router.push("/login");
+    window.location.href = "/login";
   };
 
   const navigation = [
