@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 interface User {
   username: string;
@@ -11,12 +11,11 @@ interface UserContextValue {
   setUserInfo: (info: string) => void;
 }
 
-// Define the UserProvider component
-interface UserProviderProps {
-  children: ReactNode; // ReactNode is a type that represents any type of children in React
-}
-
 const UserContext = createContext<UserContextValue | undefined>(undefined);
+
+interface UserProviderProps {
+  children: ReactNode;
+}
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User>({ username: '', userInfo: '' });
@@ -29,11 +28,11 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     setUser((prevUser) => ({ ...prevUser, userInfo: info }));
   };
 
-  return 
+  return (
     <UserContext.Provider value={{ user, setUsername, setUserInfo }}>
       {children}
     </UserContext.Provider>
-  ;
+  );
 };
 
 export const useUser = () => {
@@ -43,3 +42,4 @@ export const useUser = () => {
   }
   return context;
 };
+
