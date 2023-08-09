@@ -13,11 +13,11 @@ interface UserContextValue {
 
 const UserContext = createContext<UserContextValue | undefined>(undefined);
 
-interface UserProviderProps {
-  children: ReactNode;
-}
+// interface UserProviderProps {
+//   children: ReactNode;
+// }
 
-export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
+export const UserProvider: any = ({ children }) => {
   const [user, setUser] = useState<User>({ username: '', userInfo: '' });
 
   const setUsername = (username: string) => {
