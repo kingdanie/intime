@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import { useUser } from "../custom-hooks/useUser";
 import { ContactsContext } from "../contexts/ContactsContext";
 import { useContacts } from "../custom-hooks/useContact";
