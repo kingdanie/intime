@@ -1,0 +1,2 @@
+[build]
+ignore = ["src/**/*.ts", "src/**/*.tsx"]
