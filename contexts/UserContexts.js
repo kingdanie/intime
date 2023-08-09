@@ -1,16 +1,24 @@
-import { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
-const UserContext = createContext();
+export const UserContext = createContext({
+  username: '',
+  setUsername: (username) => {},
+  userInfo: {},
+  setUserInfo: (userInfo) => {},
+});
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({ username: '', userInfo: '' });
+  const [user, setUser] = useState({
+    username: '',
+    userInfo: {},
+  });
 
   const setUsername = (username) => {
     setUser((prevUser) => ({ ...prevUser, username }));
   };
 
-  const setUserInfo = (info) => {
-    setUser((prevUser) => ({ ...prevUser, userInfo: info }));
+  const setUserInfo = (userInfo) => {
+    setUser((prevUser) => ({ ...prevUser, userInfo }));
   };
 
   return (
