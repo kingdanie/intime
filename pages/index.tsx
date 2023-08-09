@@ -10,7 +10,7 @@ import MsgCard from "../components/MsgCard";
 import EditProfile from "../components/editProfile";
 import Link from "next/link";
 import AddPointsModal from "../components/AddPointsModal";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import { Message, Status } from "../types/Message";
 
 export default function Home() {

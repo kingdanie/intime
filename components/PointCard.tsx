@@ -1,6 +1,6 @@
 import { LinkIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import { UserInfo } from "../types/UserInfo";
 
 export default function PointCard({

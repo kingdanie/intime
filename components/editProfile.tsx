@@ -4,7 +4,7 @@ import Link from "next/link";
 import uimage from "/public/user-profile.png";
 import editButton from "/public/edit.svg";
 import { useContext } from "react";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 
 export default function EditProfile() {
   const { username, userInfo } = useContext(UserContext);

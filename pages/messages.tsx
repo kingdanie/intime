@@ -7,7 +7,7 @@ import AppHeader from "../components/AppHeader";
 import MCalendar from "../components/m-calendar";
 import RecentPicks from "../components/RecentPicks";
 import AppSwitch from "../components/switch";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import OtherLayout from "./layout2";
 import { postFormData } from "../utils/postFormData";
 import { Message, Recipient } from "../types/Message";

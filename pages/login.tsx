@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
 import { FormEvent, useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import { harperFetchJWTTokens } from "../utils/harperdb/fetchJWTTokens";
 import SocialLogin from "../components/social-login";
 import { UserInfo } from "../types/UserInfo";

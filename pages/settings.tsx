@@ -10,7 +10,7 @@ import AppHeader from "../components/AppHeader";
 import { Disclosure } from "@headlessui/react";
 import RootLayout from "./layout";
 import AppSwitch from "../components/switch";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import { DevicePhoneMobileIcon } from "@heroicons/react/24/outline";
 
 export default function Settings() {

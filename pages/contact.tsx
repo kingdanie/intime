@@ -15,7 +15,7 @@ import AddContactModal from "../components/AddContact";
 import { useContext, useState } from "react";
 import { ContactsContext } from "../contexts/ContactsContext";
 import { postFormData } from "../utils/postFormData";
-import { UserContext } from "../contexts/UserContexts";
+import { UserContext } from "../contexts/UserContexts.js";
 import AddGroupModal from "../components/AddGroup";
 
 export default function Contact() {
